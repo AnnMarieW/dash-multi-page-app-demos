@@ -1,3 +1,18 @@
+
+
+"""
+ CREDIT: This code is adapted for `pages`  based on Nader Elshehabi's  article:
+   https://dev.to/naderelshehabi/securing-plotly-dash-using-flask-login-4ia2
+   https://github.com/naderelshehabi/dash-flask-login
+
+For other Authentication options see:
+  Dash Enterprise:  https://dash.plotly.com/authentication#dash-enterprise-auth
+  Dash Basic Auth:  https://dash.plotly.com/authentication#basic-auth
+
+"""
+
+
+
 import os
 
 from flask import Flask
@@ -5,11 +20,6 @@ from flask_login import login_user, LoginManager, UserMixin, logout_user, curren
 
 import dash
 from dash import dcc, html, Input, Output, State
-
-
-# CREDIT: This code is adapted for `pages`  based on Nader Elshehabi's  article:
-#   https://dev.to/naderelshehabi/securing-plotly-dash-using-flask-login-4ia2
-#   https://github.com/naderelshehabi/dash-flask-login
 
 
 # Exposing the Flask Server to enable configuring it for logging in

@@ -102,6 +102,10 @@ This code is adapted for `pages`  based on Nader Elshehabi's  article and github
 - https://dev.to/naderelshehabi/securing-plotly-dash-using-flask-login-4ia2
 - https://github.com/naderelshehabi/dash-flask-login
 
+__For other authentication options see:__
+  - [Dash Enterprise Auth](https://dash.plotly.com/authentication#dash-enterprise-auth)
+ - [Dash Basic Auth](https://dash.plotly.com/authentication#basic-auth)
+
 
 ![flask__login](https://user-images.githubusercontent.com/72614349/174487970-74351830-b971-4874-bb3f-d33d2fdec74c.gif)
 

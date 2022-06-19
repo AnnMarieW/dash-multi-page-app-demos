@@ -155,3 +155,81 @@ It includes:
 This example demonstrate a light and dark theme switch component from the [dash-bootstrap-templates](https://github.com/AnnMarieW/dash-bootstrap-templates) library.
 
 ![theme_switch](https://user-images.githubusercontent.com/72614349/174487972-078fec10-a54f-418d-b0c4-8de0e8e4b438.gif)
+
+------
+--------
+
+# Tips and Tricks
+
+## `print_registry()` from dash-labs>-1.1.0
+
+
+
+When debugging a `pages` app, it's very helpful to inspect the content of the  `dash.page_registry`.   If you simply 
+`print(dash.page_registry)`  it can include a lot of data that's hard to read. 
+
+`print_registry()` is a handy utility that pretty-prints all or part of the `dash.page_registry` dict.
+
+
+Examples for `print_registry()`
+
+
+```
+
+
+from dash import Dash, html, register_page
+
+# must use dash-labs>=1.1.0
+from dash_labs import print_registry
+
+app = Dash(__name__, use_pages=True)
+
+register_page("another_home", layout=html.Div("We're home!"), path="/")
+
+print_registry()
+
+.... rest of your app
+
+```
+Will print to the console:
+
+```
+{'another_home': {'module': 'another_home',
+                  'supplied_path': '/',
+                  'path_template': None,
+                  'path': '/',
+                  'supplied_name': None,
+                  'name': 'Another home',
+                  'supplied_title': None,
+                  'title': 'Another home',
+                  'description': '',
+                  'order': 0,
+                  'supplied_order': None,
+                  'supplied_layout': Div("We're home!"),
+                  'image': None,
+                  'supplied_image': None,
+                  'image_url': None,
+                  'redirect_from': None,
+                  'layout': Div("We're home!")}}
+```
+
+__Reference__
+
+`print_registry(modules='ALL', exclude=None, include='ALL')`
+   
+Params:
+- `module`: (string or list) Default "ALL".  Specifies which modules to print.
+-  `exclude`: (string or list) Default None.   Specifies which of the page's  parameter(s) to exclude.
+ - `include`: (string or list) Default "ALL".  Prints only the parameters that are specified.
+ 
+Examples:
+ 
+  - `print_registry()`  Will print the entire content of dash.page_registry. If called from a file in the pages folder `dash.page_registry` may not be complete.
+   - `print_registry("pages.home")` will print only one module, in this case, the `pages.home` module
+   - `print_registry(__name__)`  will print the current module.  When called from app.py it will print all modules.   
+   - `print_registry(["pages.home", "pages.archive"])` Will print the modules in the list.
+   - `print_registry(exclude="layout")`  will print info for all the modules, but will exclude the "layout" attribute
+   - `print_registry(include=["path", "name"]` will print only the "path" and "name" attributes for all modules   
+   - `print_registry(include=None) prints the keys (module names) only
+
+------------------

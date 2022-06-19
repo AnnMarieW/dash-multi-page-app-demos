@@ -14,7 +14,7 @@ navbar = dbc.NavbarSimple(
         nav=True,
         label="More Pages",
     ),
-    brand="Multi Page App Plugin Demo",
+    brand="Multi Page App Demo",
     color="primary",
     dark=True,
     className="mb-2",

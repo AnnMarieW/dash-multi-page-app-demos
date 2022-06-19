@@ -25,6 +25,7 @@ app.layout = html.Div(
                 if page["module"] != "pages.not_found_404"
             ]
         ),
+        html.Hr(),
         dash.page_container,
     ]
 )

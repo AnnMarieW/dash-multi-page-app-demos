@@ -48,11 +48,11 @@ layout = html.Div(
     [
         html.H4("Click on links to navigate to the stocks page", className="mt-5"),
         html.H5(
-            "Using a DataTable with links formatted with Markdown", className="mt-5"
+            "DataTable with Markdown links", className="mt-5"
         ),
         datatable,
         html.H5(
-            "Using an html table with dcc.Link so the page doesn't refresh",
+            "html table with dcc.Link  Note:  No page refresh on navigation",
             className="mt-5",
         ),
         table,

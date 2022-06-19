@@ -28,4 +28,4 @@ dash.register_page(
 
 
 def layout(ticker=None, **other_unknown_query_strings):
-    return dash.html.Div(f"Get ticker from the pathname:  ticker: {ticker}")
+    return dash.html.H3(f"Financial and Technical Analysis for: {ticker}")

@@ -7,7 +7,7 @@ app = dash.Dash(__name__, use_pages=True, pages_folder="", external_stylesheets=
 dash.register_page("bar_charts", layout=bar_charts.layout)
 dash.register_page("heatmaps", "/", layout=heatmaps.layout)
 dash.register_page("histograms", layout=histograms.layout)
-dash.register_page(".not_found_404", path="/404", layout=not_found_404.layout)
+dash.register_page("not_found_404", path="/404", layout=not_found_404.layout)
 
 navbar = dbc.NavbarSimple(
     dbc.DropdownMenu(

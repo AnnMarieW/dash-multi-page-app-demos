@@ -146,7 +146,7 @@ This app demonstrates passing variables to a page using query strings.
 
 ## 10. [multi_page_table_links](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_table_links)
 
-This app uses links in a table to navigate to a different page. It also demonstrates passing variables from the url to the page.
+This app uses links in a table to navigate to a different page. 
 It shows two tables:
 - The `dash.DataTable` has links formatted using Markdown.
 - The html table uses `dcc.Link`.  The advantage of the html table is `dcc.Link` allow for the navigation to a new page without refreshing the page. The table is created with the `dbc.Table.from_dataframe` function from the `dash-bootstrap-components` library.  
@@ -162,7 +162,17 @@ This example demonstrate a light and dark theme switch component from the [dash-
 ![theme_switch](https://user-images.githubusercontent.com/72614349/174487972-078fec10-a54f-418d-b0c4-8de0e8e4b438.gif)
 
 ------
---------
+
+## 12. [multi_page_update_url_in_callback](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_in_callback)
+
+This example shows how to update the url in a callback. It passes the value of the dcc.Input to the layout of a different page as a path variable.
+It also demonstrates using `urllib.parse.unquote` to get decoded strings from the url.  
+
+![update_url_in_callback](https://user-images.githubusercontent.com/72614349/174862799-e08cf136-15da-4831-9415-4faee2984729.gif)  
+
+
+---
+---
 
 # Tips and Tricks
 
@@ -234,6 +244,6 @@ Examples:
    - `print_registry(["pages.home", "pages.archive"])` Will print the modules in the list.
    - `print_registry(exclude="layout")`  will print info for all the modules, but will exclude the "layout" attribute
    - `print_registry(include=["path", "name"]` will print only the "path" and "name" attributes for all modules   
-   - `print_registry(include=None) prints the keys (module names) only
+   - `print_registry(include=None)` prints the keys (module names) only
 
 ------------------

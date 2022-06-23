@@ -13,7 +13,7 @@ navbar = dbc.NavbarSimple(
             if page["module"] != "pages.not_found_404"
         ],
     ),
-    brand="Multi Page App Demo",
+    brand="Multi Page App Demo: Query Strings",
     color="primary",
     dark=True,
     className="mb-2",

@@ -46,15 +46,14 @@ table = dbc.Table.from_dataframe(df, striped=True, bordered=True, hover=True)
 
 layout = html.Div(
     [
-        html.H4("Click on links to navigate to the stocks page", className="mt-5"),
-        html.H5(
-            "DataTable with Markdown links", className="mt-5"
-        ),
-        datatable,
         html.H5(
             "html table with dcc.Link  Note:  No page refresh on navigation",
             className="mt-5",
         ),
         table,
+        html.H5(
+            "DataTable with Markdown links", className="mt-5"
+        ),
+        datatable,
     ]
 )

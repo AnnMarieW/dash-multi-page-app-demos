@@ -5,40 +5,12 @@ This repo contains minimal examples of multi-page apps using the `pages` feature
 __See the Dash Documentation :new: [Multi-Page Apps and URL Support](https://dash.plotly.com/urls)__
 
 This feature was developed in dash-labs.  For background, see the thread on the [Dash Community Forum.](https://community.plotly.com/t/introducing-dash-pages-a-dash-2-x-feature-preview/57775/)
-
+If you have a multi-page app using the `pages` plugin from dash-labs, see the post on [how to migrate to dash>=2.5.1.](https://community.plotly.com/t/introducing-dash-pages-a-dash-2-x-feature-preview/57775/132?u=annmariew) 
 -----
-
-### Converting from a dash-labs `pages` plugin
-
-Convert your multi-page app from a dash-labs `pages` plug-in to the `pages` feature in dash 2.5.1 in 3 easy steps:
-
-1. Remove `import dash_labs as dl` or upgrade dash-labs to V1.1.0
-There is a conflict between dash-labs versions less than 1.1.0 when running a `pages` app in dash 2.5.1
-
-
-2. Change:
-```
-app = Dash(__name__, plugins=[dl.plugins.pages])
-```
-to:
-```
-app = Dash(__name__, use_pages=True)
-```
-
-3. Change:
-```
-dl.plugins.page_container
-```
-to:
-```
-dash.page_container
-```
-####  That's it!
-:point_right: The`pages` feature will no longer be developed in dash-labs.   I recommend all dash-labs multi-page apps be converted to use the `pages` feature in dash>= 2.5.1
 
 -------
 ---------
-# Multi Page Demos
+# Demos
 
 The examples use the `pages` feature in dash>=2.5.1. and are listed by their folder name.
 
@@ -145,7 +117,9 @@ This app demonstrates the case where you have nested folders with pages folder, 
 ## 9. [multi_page_query_strings/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_query_strings)
 
 This app demonstrates passing variables to a page using query strings.
-For more information see:  https://dash.plotly.com/urls#query-strings
+For more information see the Dash Documentation:  https://dash.plotly.com/urls#query-strings
+
+![query_strings](https://user-images.githubusercontent.com/72614349/175389777-dbf10ccf-d4cb-4f86-9e09-12a7ad048fd5.gif)
 
 ----
 
@@ -157,26 +131,33 @@ This app shows how to share data between callbacks on different pages using a `d
 -----
 ----------
 
-## 11. [multi_page_table_links](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_table_links)
+## 11. [multi_page_table_links/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_table_links)
 
 This app uses links in a table to navigate to a different page. 
 It shows two tables:
 - The `dash.DataTable` has links formatted using Markdown.
 - The html table uses `dcc.Link`.  The advantage of the html table is `dcc.Link` allow for the navigation to a new page without refreshing the page. The table is created with the `dbc.Table.from_dataframe` function from the `dash-bootstrap-components` library.  
 
-![table_links](https://user-images.githubusercontent.com/72614349/174487974-711890ef-d988-43e4-9c61-4216031da644.gif)
+![table_links](https://user-images.githubusercontent.com/72614349/175389810-fc60beed-9684-4ca8-96fa-d7c5e765e93a.gif)
 
 
 ----
 
-## 12. [multi_page_theme_switch](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_theme_switch)
+## 12 [multi_page_sync_components/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_sync_components)
+
+This example shows how to synchronize component values between pages. It uses [MultiplexerTransform from the dash-extensions](https://www.dash-extensions.com/transforms/multiplexer-transform) library to update a `dcc.Store` component from multiple callbacks.
+
+![sync](https://user-images.githubusercontent.com/72614349/175389756-bf064f6d-edd1-4107-9764-1373c260451f.gif)
+---
+
+## 13. [multi_page_theme_switch/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_theme_switch)
 This example demonstrate a light and dark theme switch component from the [dash-bootstrap-templates](https://github.com/AnnMarieW/dash-bootstrap-templates) library.
 
 ![theme_switch](https://user-images.githubusercontent.com/72614349/174487972-078fec10-a54f-418d-b0c4-8de0e8e4b438.gif)
 
 ------
 
-## 13. [multi_page_update_url_in_callback](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_in_callback)
+## 14. [multi_page_update_url_in_callback/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_in_callback)
 
 This example shows how to update the url in a callback. It passes the value of the dcc.Input to the layout of a different page as a path variable.
 It also demonstrates using `urllib.parse.unquote` to get decoded strings from the url.  

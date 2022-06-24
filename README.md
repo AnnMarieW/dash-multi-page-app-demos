@@ -2,11 +2,11 @@
 
 This repo contains minimal examples of multi-page apps using the `pages` feature available in dash>=2.5.1
 
-__See the Dash Documentation :new: [Multi-Page Apps and URL Support](https://dash.plotly.com/urls)__
+__See the Dash Documentation :new: [Multi-Page Apps and URL Support](https://dash.plotly.com/urls)__  
 
 This feature was developed in dash-labs.  For background, see the thread on the [Dash Community Forum.](https://community.plotly.com/t/introducing-dash-pages-a-dash-2-x-feature-preview/57775/)
 If you have a multi-page app using the `pages` plugin from dash-labs, see the post on [how to migrate to dash>=2.5.1.](https://community.plotly.com/t/introducing-dash-pages-a-dash-2-x-feature-preview/57775/132?u=annmariew) 
------
+
 
 -------
 ---------
@@ -244,17 +244,15 @@ Examples:
 
 ## 2. :tada: Use dcc.Link in dcc.Markdown
 
-Did you know it's possible to format links in `dcc.Markdown` with `dcc.Link`?
-The advantage of using  `dcc.Link` is that it navigates without refreshing a page which is really fast.
+Did you know it's possible to use dcc.Link in  `dcc.Markdown`?
+The advantage of using  `dcc.Link` to navigate between pages of a multi-page app is that when you click on the link it updates the pathname without refreshing the page --  which makes browsing really fast. :rocket:
 
-Here's how to do this in a `dcc.Markdown` component.
-
-dcc.Link:
+Here's how:
 ```python
 dcc.Markdown( "This is text <dccLink href='page1/news' children='Page 1' /> more text", dangerously_allow_html=True)
 ```
 
-For comparison, here is a regular markdown link syntax:
+For comparison, here is a regular Markdown link syntax:
 ```python
 dcc.Markdown( "This is text [Page 1](/page1/news) more text")
 ```

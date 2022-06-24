@@ -170,7 +170,7 @@ It also demonstrates using `urllib.parse.unquote` to get decoded strings from th
 
 # Tips and Tricks
 
-## `print_registry()` from dash-labs>-1.1.0
+## 1. print_registry() from dash-labs>-1.1.0
 
 
 
@@ -241,3 +241,22 @@ Examples:
    - `print_registry(include=None)` prints the keys (module names) only
 
 ------------------
+
+## 2. :tada: Use dcc.Link in dcc.Markdown
+
+Did you know it's possible to format links in `dcc.Markdown` with `dcc.Link`?
+The advantage of using  `dcc.Link` is that it navigates without refreshing a page which is really fast.
+
+Here's how to do this in a `dcc.Markdown` component.
+
+dcc.Link:
+```python
+dcc.Markdown( "This is text <dccLink href='page1/news' children='Page 1' /> more text", dangerously_allow_html=True)
+```
+
+For comparison, here is a regular markdown link syntax:
+```python
+dcc.Markdown( "This is text [Page 1](/page1/news) more text")
+```
+
+For more examples including how to format the link title with Markdown syntax or use an image [get the gist.](https://gist.github.com/AnnMarieW/b5269c177cc3dfed06766aded802f664)

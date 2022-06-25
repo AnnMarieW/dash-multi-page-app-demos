@@ -14,11 +14,11 @@ The examples are listed by their folder name.
  1. [multi_page_basics/](#1-multi_page_basics) - minimal overview of basic pages features.
  2. [multi_page_pathname_prefix/](#2-multi_page_pathname_prefix) - overview using a pathname prefix.
  3. [multi_page_cache/](#3-multi_page_cache) - sharing data between pages with caching.
- 4. [multi_page_example1/](#4-multi_page_example1) - 3 page app with header navbar, graphs and callbacks.  Uses `dash-bootstrap-components`.
+ 4. [multi_page_example1/](#4-multi_page_example1) - 3 page app with header navbar, graphs and callbacks.  Uses [dash-bootstrap-components](https://dash-bootstrap-components.opensource.faculty.ai/).
  5. [multi_page_flask_login/](#5-multi_page_flask_login) - uses flask-login to secure one page of a multi-page app.
  6. [multi_page_layout_functions/](#6-multi_page_layout_functions) - uses a function to access `dash.page_registry` from within the pages folder to build a sidebar.
  7. [multi_page_meta_tags/](#7-multi_page_meta_tags) - how images are used in meta tags when sharing the app on social media.
- 8. [multi_page_nested_folder/](#8-multi_page_nested_folder) - creates a sidebar from a sub folder in the pages folder.
+ 8. [multi_page_nested_folder/](#8-multi_page_nested_folder) - creates a sidebar from a sub folder in the pages folder and adds arbitrary data to `dash.page_registry`. Uses [dash-mantine-components](https://www.dash-mantine-components.com/)
  9. [multi_page_query_strings/](#9-multi_page_query_strings) - passes variables to the layout function from the url query string.
  10. [multi_page_store/](#10-multi_page_store) - sharing data between pages with a `dcc.Store`.
  11. [multi_page_table_links/](#11-multi_page_table_links) - uses links in a DataTable and an html table for navigation and passes variables from the pathname to the page layout function.
@@ -122,16 +122,17 @@ This app demonstrates the case where you have nested folders with pages folder, 
 ```
 - app.py 
 - pages
-    - chapter1
-       |-- __init__.py
+    - chapter1       
        |-- page1.py
        |-- page2.py
-    - chapter2
-       |-- __init__.py
+    - chapter2       
        |-- page1.py
        |-- page2.py
+    - home.py
 ```
+ This app also demos how to add arbitrary data to the `page_registry`.  This example adds icons to the `page_registry` which are used when creating the links.
 
+![nested_folders](https://user-images.githubusercontent.com/72614349/175791213-b74c8382-de17-426c-a863-43ef2518f1ca.png)
 
 ------
 ## 9. [multi_page_query_strings/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_query_strings)

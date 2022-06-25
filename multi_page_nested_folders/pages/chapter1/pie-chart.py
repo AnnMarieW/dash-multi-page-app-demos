@@ -1,9 +1,8 @@
-import dash
-
-dash.register_page(__name__, icon="fas fa-chart-pie")
-
-from dash import dcc, html, Input, Output, callback
+from dash import dcc, html, Input, Output, callback, register_page
+import dash_mantine_components as dmc
 import plotly.express as px
+
+register_page(__name__, icon="fa:pie-chart")
 
 # This dataframe has 244 lines, but 4 distinct values for `day`
 df = px.data.tips()
@@ -12,19 +11,17 @@ df = px.data.tips()
 layout = html.Div(
     [
         html.P("Names:"),
-        dcc.Dropdown(
+        dmc.Select(
             id="names",
             value="day",
-            options=[
-                {"value": x, "label": x} for x in ["smoker", "day", "time", "sex"]
-            ],
+            data=[{"value": x, "label": x} for x in ["smoker", "day", "time", "sex"]],
             clearable=False,
         ),
         html.P("Values:"),
-        dcc.Dropdown(
+        dmc.Select(
             id="values",
             value="total_bill",
-            options=[{"value": x, "label": x} for x in ["total_bill", "tip", "size"]],
+            data=[{"value": x, "label": x} for x in ["total_bill", "tip", "size"]],
             clearable=False,
         ),
         dcc.Graph(id="pie-chart"),

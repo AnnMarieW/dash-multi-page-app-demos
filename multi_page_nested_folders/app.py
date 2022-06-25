@@ -1,76 +1,98 @@
 import dash
 from dash import dcc, html, Output, Input, State
-import dash_bootstrap_components as dbc
+import dash_mantine_components as dmc
+from dash_iconify import DashIconify
 
 
-app = dash.Dash(
-    __name__,
-    use_pages=True,
-    external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.FONT_AWESOME],
-)
+app = dash.Dash(__name__, use_pages=True)
 
 
-navbar = dbc.NavbarSimple(
-    dbc.DropdownMenu(
-        [
-            dbc.DropdownMenuItem(page["name"], href=page["path"])
-            for page in dash.page_registry.values()
-            if not page["path"].startswith("/chapter")
-        ],
-        nav=True,
-        label="More Pages",
-    ),
-    brand="Multi Page App Plugin Demo",
-    color="primary",
-    dark=True,
-    className="mb-2",
-)
-
-sidebar_button = dbc.Button(html.I(className="fa fa-bars"), id="sidebar-btn")
-sidebar = dbc.Offcanvas(
-    dbc.Nav(
-        [html.H3("Chapters")]
-        + [
-            dbc.NavLink(
-                [
-                    html.I(className=page["icon"]),
-                    html.Span(page["name"], className="ms-2"),
-                ],
-                href=page["path"],
-                active="exact",
-            )
-            for page in dash.page_registry.values()
-            if page["path"].startswith("/chapter")
-        ],
-        vertical=True,
-        pills=True,
-    ),
-    id="offcanvas",
-)
-
-app.layout = dbc.Container(
-    [
-        navbar,
-        dbc.Row(
+def create_nav_link(icon, label, href):
+    return dcc.Link(
+        dmc.Group(
             [
-                dbc.Col([sidebar_button], width=1),
-                dbc.Col([sidebar, dash.page_container]),
+                dmc.ThemeIcon(
+                    DashIconify(icon=icon, width=18),
+                    size=30,
+                    radius=30,
+                    variant="light",
+                ),
+                dmc.Text(label, size="sm", color="gray"),
             ]
+        ),
+        href=href,
+        style={"textDecoration": "none"},
+    )
+
+
+sidebar = dmc.Navbar(
+    fixed=True,
+    width={"base": 300},
+    position={"top": 80},
+    height=300,
+    children=[
+        dmc.ScrollArea(
+            offsetScrollbars=True,
+            type="scroll",
+            children=[
+                dmc.Group(
+                    direction="column",
+                    children=[
+                        create_nav_link(
+                            icon="radix-icons:rocket",
+                            label="Home",
+                            href="/",
+                        ),
+                    ],
+                ),
+                dmc.Divider(
+                    label="Chapter 1", style={"marginBottom": 20, "marginTop": 20}
+                ),
+                dmc.Group(
+                    direction="column",
+                    children=[
+                        create_nav_link(
+                            icon=page["icon"], label=page["name"], href=page["path"]
+                        )
+                        for page in dash.page_registry.values()
+                        if page["path"].startswith("/chapter1")
+                    ],
+                ),
+                dmc.Divider(
+                    label="Chapter 2", style={"marginBottom": 20, "marginTop": 20}
+                ),
+                dmc.Group(
+                    direction="column",
+                    children=[
+                        create_nav_link(
+                            icon=page["icon"], label=page["name"], href=page["path"]
+                        )
+                        for page in dash.page_registry.values()
+                        if page["path"].startswith("/chapter2")
+                    ],
+                ),
+            ],
+        )
+    ],
+)
+
+app.layout = dmc.Container(
+    [
+        dmc.Header(
+            height=70,
+            children=[dmc.Text("Company Logo")],
+            style={"backgroundColor": "#228be6"},
+        ),
+        sidebar,
+        dmc.Container(
+            dash.page_container,
+            size="lg",
+            pt=20,
+            style={"marginLeft": 300},
         ),
     ],
     fluid=True,
 )
-
-
-@app.callback(
-    Output("offcanvas", "is_open"),
-    Input("sidebar-btn", "n_clicks"),
-    State("offcanvas", "is_open"),
-)
-def toggle_theme_offcanvas(n1, is_open):
-    if n1:
-        return not is_open
-    return is_open
 
 
 if __name__ == "__main__":

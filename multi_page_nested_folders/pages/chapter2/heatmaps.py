@@ -1,19 +1,17 @@
-import dash
-
-dash.register_page(__name__)
-
-
-from dash import Dash, dcc, html, Input, Output, callback
+from dash import dcc, html, Input, Output, callback, register_page
+import dash_mantine_components as dmc
 import plotly.express as px
+
+register_page(__name__, icon="ph:squares-four-duotone")
 
 df = px.data.medals_wide(indexed=True)
 
 layout = html.Div(
     [
         html.P("Medals included:"),
-        dcc.Checklist(
+        dmc.MultiSelect(
             id="heatmaps-medals",
-            options=[{"label": x, "value": x} for x in df.columns],
+            data=[{"label": x, "value": x} for x in df.columns],
             value=df.columns.tolist(),
         ),
         dcc.Graph(id="heatmaps-graph"),

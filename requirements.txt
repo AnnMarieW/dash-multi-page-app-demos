@@ -1,5 +1,7 @@
 dash>=2.5.1
 dash-bootstrap-components>=1.1.0
+dash-mantine-components>=0.10.1
+dash-iconify>=0.1.2
 numpy
 pandas
 
@@ -20,3 +22,5 @@ dash-bootstrap-templates
 
 # for debugging demo using dash_labs.print_registry() only
 dash-labs>=1.1.0
+
+

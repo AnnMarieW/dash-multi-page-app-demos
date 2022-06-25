@@ -1,19 +1,16 @@
-import dash
-
-dash.register_page(__name__, icon="fas fa-chart-bar")
-
-
-from dash import Dash, dcc, html, Input, Output, callback
+from dash import dcc, html, Input, Output, callback, register_page
+import dash_mantine_components as dmc
 import plotly.express as px
 
+register_page(__name__, icon="fa:bar-chart")
 df = px.data.tips()
 days = df.day.unique()
 
 layout = html.Div(
     [
-        dcc.Dropdown(
+        dmc.Select(
             id="dropdown",
-            options=[{"label": x, "value": x} for x in days],
+            data=[{"label": x, "value": x} for x in days],
             value=days[0],
             clearable=False,
         ),

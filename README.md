@@ -132,7 +132,7 @@ This app demonstrates the case where you have nested folders with pages folder, 
 ```
  This app also demos how to add arbitrary data to the `page_registry`.  This example adds icons to the `page_registry` which are used when creating the links.
 
-![nested_folders](https://user-images.githubusercontent.com/72614349/175791213-b74c8382-de17-426c-a863-43ef2518f1ca.png)
+![nested_folders](https://user-images.githubusercontent.com/72614349/175791749-4c6aafc2-b49e-403f-b651-9b24bdce565a.png)
 
 ------
 ## 9. [multi_page_query_strings/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_query_strings)

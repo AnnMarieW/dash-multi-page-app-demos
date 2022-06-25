@@ -10,14 +10,15 @@ df = px.data.tips()
 
 layout = html.Div(
     [
-        html.P("Names:"),
+        dmc.Text("Names:"),
         dmc.Select(
             id="names",
             value="day",
             data=[{"value": x, "label": x} for x in ["smoker", "day", "time", "sex"]],
             clearable=False,
         ),
-        html.P("Values:"),
+        dmc.Space(h=20),
+        dmc.Text("Values:"),
         dmc.Select(
             id="values",
             value="total_bill",

@@ -8,12 +8,32 @@ This feature was developed in dash-labs.  For background, see the thread on the 
 If you have a multi-page app using the `pages` plugin from dash-labs, see the post on [how to migrate to dash>=2.5.1.](https://community.plotly.com/t/introducing-dash-pages-a-dash-2-x-feature-preview/57775/132?u=annmariew) 
 
 
--------
+__Demos__
+
+The examples are listed by their folder name.
+ 1. [multi_page_basics/](#1-multi_page_basics) - minimal overview of basic pages features.
+ 2. [multi_page_pathname_prefix/](#2-multi_page_pathname_prefix) - overview using a pathname prefix.
+ 3. [multi_page_cache/](#3-multi_page_cache) - sharing data between pages with caching.
+ 4. [multi_page_example1/](#4-multi_page_example1) - 3 page app with header navbar, graphs and callbacks.  Uses `dash-bootstrap-components`.
+ 5. [multi_page_flask_login/](#5-multi_page_flask_login) - uses flask-login to secure one page of a multi-page app.
+ 6. [multi_page_layout_functions/](#6-multi_page_layout_functions) - uses a function to access `dash.page_registry` from within the pages folder to build a sidebar.
+ 7. [multi_page_meta_tags/](#7-multi_page_meta_tags) - how images are used in meta tags when sharing the app on social media.
+ 8. [multi_page_nested_folder/](#8-multi_page_nested_folder) - creates a sidebar from a sub folder in the pages folder.
+ 9. [multi_page_query_strings/](#9-multi_page_query_strings) - passes variables to the layout function from the url query string.
+ 10. [multi_page_store/](#10-multi_page_store) - sharing data between pages with a `dcc.Store`.
+ 11. [multi_page_table_links/](#11-multi_page_table_links) - uses links in a DataTable and an html table for navigation and passes variables from the pathname to the page layout function.
+ 12. [multi_page_sync_components/](#12-multi_page_sync_components) - syncs components between pages using MultiplexerTransform from dash-extensions to update a dcc.Store from multiple callbacks.
+ 13. [multi_page_theme_switch/](#13-multi_page_theme_switch) - demos a light and dark theme switch component from the [dash-bootstrap-templates](https://github.com/AnnMarieW/dash-bootstrap-templates) library.
+ 14. [multi_page_update_url_in_callback/](#14-multi_page_update_url_in_callback) - page navigation via callback rather than a user clicking on a link.
+
+__Tips and Tricks__
+1. [Pretty print dash.page_registry](#1-print_registry-from-dash-labs-110) - with the `print_registry()` function from dash-labs
+2. [How to use dcc.Link in Markdown](#2-tada-use-dcclink-in-dccmarkdown)  - for high performance page navigation from a link in a dcc.Markdown component.
+
+--------
 ---------
+
 # Demos
-
-The examples use the `pages` feature in dash>=2.5.1. and are listed by their folder name.
-
 ## 1. [multi_page_basics/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_basics)
 
 This folder has a minimal overview of the basic `pages features`, including:
@@ -123,7 +143,7 @@ For more information see the Dash Documentation:  https://dash.plotly.com/urls#q
 
 ----
 
-## 10. [multi_page_store/]((https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_store))
+## 10. [multi_page_store/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_store)
 This app shows how to share data between callbacks on different pages using a `dcc.Store` component.
 
 ![share_data_between_pages](https://user-images.githubusercontent.com/72614349/175132278-ef8a5098-9c05-4e2d-a00e-e8fac73bd743.gif)

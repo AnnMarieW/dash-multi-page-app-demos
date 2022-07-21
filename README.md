@@ -4,6 +4,9 @@ This repo contains minimal examples of multi-page apps using the `pages` feature
 
 __See the Dash Documentation :new: [Multi-Page Apps and URL Support](https://dash.plotly.com/urls)__  
 
+__Don't miss the [video tutorial on creating multi-page apps using `pages`](https://youtu.be/pJMZ0r84Rqs) by Adam Schroeder and Chris Parmer__
+
+
 This feature was developed in dash-labs.  For background, see the thread on the [Dash Community Forum.](https://community.plotly.com/t/introducing-dash-pages-a-dash-2-x-feature-preview/57775/)
 If you have a multi-page app using the `pages` plugin from dash-labs, see the post on [how to migrate to dash>=2.5.1.](https://community.plotly.com/t/introducing-dash-pages-a-dash-2-x-feature-preview/57775/132?u=annmariew) 
 

@@ -93,7 +93,7 @@ This example shows a small app with three pages with callbacks.  Each page displ
 
 ![Example1](https://user-images.githubusercontent.com/72614349/174487976-57f797b7-c2e5-4ab6-8f05-0cc62e176898.png)
 
-## 5. [multi_page_flask_login/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_fask_login)
+## 5. [multi_page_flask_login/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_flask_login)
 
 This shows a minimal example of `flask-login` to secure one of the pages of a multi-page app.
 This code is adapted for `pages`  based on Nader Elshehabi's  [article](https://dev.to/naderelshehabi/securing-plotly-dash-using-flask-login-4ia2) and [github](https://github.com/naderelshehabi/dash-flask-login) repo.

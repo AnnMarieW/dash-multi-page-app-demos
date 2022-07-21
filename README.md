@@ -29,6 +29,16 @@ The examples are listed by their folder name.
  13. [multi_page_theme_switch/](#13-multi_page_theme_switch) - demos a light and dark theme switch component from the [dash-bootstrap-templates](https://github.com/AnnMarieW/dash-bootstrap-templates) library.
  14. [multi_page_update_url_in_callback/](#14-multi_page_update_url_in_callback) - page navigation via callback rather than a user clicking on a link.
 
+__Other repos with apps using `pages`__  
+
+1. See the [Dash Webb Compare](https://dash-webb-compare.herokuapp.com/ ) app live.  This cool app shows the first images from the James Webb Space Telescope. Compare before and after images of Hubble vs Webb.
+The Github repo has 2 versions of the app using `pages`.  
+    - [app_pages.py](https://github.com/AnnMarieW/webb-compare/blob/master/app_pages.py) - Creates an app without using the `pages` folder.
+    - [app_pages_no_assets.py](https://github.com/AnnMarieW/webb-compare/blob/master/app_pages_no_assets.py) - This multi-page app uses images that are hosted on GitHub so it doesn't use either the `pages` or the `assets` folder.  
+   
+
+2. Adding a Blog to your Dash app.  See  this [Dash Community Forum post](https://community.plotly.com/t/adding-a-blog-to-your-dash-app/65955). It describes how to do this and includes [this repo](https://github.com/bradley-erickson/dash-blog-page) from @bradley-erickson. 
+
 __Tips and Tricks__
 1. [Pretty print dash.page_registry](#1-print_registry-from-dash-labs-110) - with the `print_registry()` function from dash-labs
 2. [How to use dcc.Link in Markdown](#2-tada-use-dcclink-in-dccmarkdown)  - for high performance page navigation from a link in a dcc.Markdown component.

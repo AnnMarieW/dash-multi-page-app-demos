@@ -1,6 +1,7 @@
 import dash
 from dash import html, dcc, Output, Input, callback
 from pages.login import layout as login
+from flask_login import current_user
 
 dash.register_page(__name__)
 
@@ -23,13 +24,13 @@ logged_in_layout = html.Div(
 )
 
 
-@callback(Output("page-2-auth-content", "children"), Input("login-status", "data"))
-def authenticate(logged_in):
-    if logged_in:
+@callback(Output("page-2-auth-content", "children"), Input("url", "href"))
+def authenticate(_):
+    if current_user.is_authenticated:
         return logged_in_layout
     return login
 
 
 @callback(Output("page-2-content", "children"), Input("page-2-radios", "value"))
 def page_2_radios(value):
-    return 'You have selected "{}"'.format(value)
+    return f'You have selected "{value}"'

@@ -1,5 +1,3 @@
-
-
 """
  CREDIT: This code is adapted for `pages`  based on Nader Elshehabi's  article:
    https://dev.to/naderelshehabi/securing-plotly-dash-using-flask-login-4ia2
@@ -10,7 +8,6 @@ For other Authentication options see:
   Dash Basic Auth:  https://dash.plotly.com/authentication#basic-auth
 
 """
-
 
 
 import os
@@ -27,6 +24,11 @@ server = Flask(__name__)
 app = dash.Dash(
     __name__, server=server, use_pages=True, suppress_callback_exceptions=True
 )
+
+# Keep this out of source code repository - save in a file or a database
+#  passwords should be encrypted
+VALID_USERNAME_PASSWORD = {"test": "test", "hello": "world"}
+
 
 # Updating the Flask Server configuration with Secret Key to encrypt the user session cookie
 server.config.update(SECRET_KEY=os.getenv("SECRET_KEY"))
@@ -54,7 +56,7 @@ def load_user(username):
 
 app.layout = html.Div(
     [
-        dcc.Location(id="url-login"),
+        dcc.Location(id="url"),
         dcc.Store(id="login-status", storage_type="session"),
         html.Div(id="user-status-header"),
         html.Hr(),
@@ -64,21 +66,16 @@ app.layout = html.Div(
 
 
 @app.callback(
-    Output("login-status", "data"),
     Output("user-status-header", "children"),
-    Input("url-login", "pathname"),
+    Input("url", "pathname"),
 )
 def update_authentication_status(path):
-    #  Updates the login link in the header and the dcc.Store with the user authentication status
-
     logged_in = current_user.is_authenticated
     if path == "/logout" and logged_in:
         logout_user()
     if logged_in:
-        link = dcc.Link("logout", href="/logout")
-    else:
-        link = dcc.Link("login", href="/login")
-    return logged_in, link
+        return dcc.Link("logout", href="/logout")
+    return dcc.Link("login", href="/login")
 
 
 @app.callback(
@@ -90,10 +87,12 @@ def update_authentication_status(path):
 )
 def login_button_click(n_clicks, username, password):
     if n_clicks > 0:
-        if username == "test" and password == "test":
+        if VALID_USERNAME_PASSWORD.get(username) is None:
+            return "Invalid username"
+        if VALID_USERNAME_PASSWORD.get(username) == password:
             login_user(User(username))
             return "Login Successful"
-        return "Incorrect username or password"
+        return "Incorrect  password"
 
 
 if __name__ == "__main__":

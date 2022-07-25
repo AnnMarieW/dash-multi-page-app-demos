@@ -2,16 +2,19 @@
 
 This repo contains minimal examples of multi-page apps using the `pages` feature available in dash>=2.5.1
 
-__See the Dash Documentation :new: [Multi-Page Apps and URL Support](https://dash.plotly.com/urls)__  
+__See the :new: Dash Documentation [Multi-Page Apps and URL Support](https://dash.plotly.com/urls)__  
 
-__Don't miss the [video tutorial on creating multi-page apps using `pages`](https://youtu.be/pJMZ0r84Rqs) by Adam Schroeder and Chris Parmer__
+__:movie_camera: Don't miss the video tutorials:__
+ - [Introducing Dash `pages` --  A better way to make multi-page apps`](https://youtu.be/pJMZ0r84Rqs) by Adam Schroeder and Chris Parmer.  
+ - Charming Data Videos by Adam Schroeder:
+      - [Creating Multi Page Apps - Part I ](https://youtu.be/Hc9_-ncr4nU)
 
 
 This feature was developed in dash-labs.  For background, see the thread on the [Dash Community Forum.](https://community.plotly.com/t/introducing-dash-pages-a-dash-2-x-feature-preview/57775/)
 If you have a multi-page app using the `pages` plugin from dash-labs, see the post on [how to migrate to dash>=2.5.1.](https://community.plotly.com/t/introducing-dash-pages-a-dash-2-x-feature-preview/57775/132?u=annmariew) 
 
 
-__Demos__
+__Example Apps__
 
 The examples are listed by their folder name.
  1. [multi_page_basics/](#1-multi_page_basics) - minimal overview of basic pages features.
@@ -143,8 +146,11 @@ This app demonstrates the case where you have nested folders with pages folder, 
        |-- page2.py
     - home.py
 ```
- This app also demos how to add arbitrary data to the `page_registry`.  This example adds icons to the `page_registry` which are used when creating the links.
 
+
+It also demos how to add arbitrary data to the `page_registry`.  It adds icons to the `page_registry` which are used when creating the links.
+
+This app uses  [dash-mantine-components](https://dash-mantine-components.herokuapp.com/dash-iconify) and [dash-iconify libraries.](https://dash-mantine-components.herokuapp.com/dash-iconify)
 ![nested_folders](https://user-images.githubusercontent.com/72614349/175791749-4c6aafc2-b49e-403f-b651-9b24bdce565a.png)
 
 ------

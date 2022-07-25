@@ -23,4 +23,4 @@ layout = html.Div(
 
 @callback(Output("page-1-content", "children"), Input("page-1-dropdown", "value"))
 def page_1_dropdown(value):
-    return 'You have selected "{}"'.format(value)
+    return f'You have selected "{value}"'

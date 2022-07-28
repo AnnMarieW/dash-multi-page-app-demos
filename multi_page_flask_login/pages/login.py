@@ -16,14 +16,3 @@ layout = html.Div(
         dcc.Link("Home", href="/"),
     ]
 )
-
-"""
-If you get this error message:
-    dash.exceptions.NoLayoutException: No layout in module pages.login in dash.page_registry
-
-Then register the page like this:
-
-dash.register_page(__name__, layout=layout)
-
-For more info see: https://github.com/AnnMarieW/dash-multi-page-app-demos/issues/1
-"""

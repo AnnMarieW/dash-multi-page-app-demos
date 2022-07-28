@@ -11,7 +11,6 @@ For other Authentication options see:
 
 
 import os
-
 from flask import Flask
 from flask_login import login_user, LoginManager, UserMixin, logout_user, current_user
 
@@ -57,7 +56,6 @@ def load_user(username):
 app.layout = html.Div(
     [
         dcc.Location(id="url"),
-        dcc.Store(id="login-status", storage_type="session"),
         html.Div(id="user-status-header"),
         html.Hr(),
         dash.page_container,
@@ -69,11 +67,8 @@ app.layout = html.Div(
     Output("user-status-header", "children"),
     Input("url", "pathname"),
 )
-def update_authentication_status(path):
-    logged_in = current_user.is_authenticated
-    if path == "/logout" and logged_in:
-        logout_user()
-    if logged_in:
+def update_authentication_status(_):
+    if current_user.is_authenticated:
         return dcc.Link("logout", href="/logout")
     return dcc.Link("login", href="/login")
 

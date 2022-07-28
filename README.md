@@ -194,6 +194,12 @@ This example shows how to synchronize component values between pages. It uses [M
 ## 13. [multi_page_theme_switch/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_theme_switch)
 This example demonstrate a light and dark theme switch component from the [dash-bootstrap-templates](https://github.com/AnnMarieW/dash-bootstrap-templates) library.
 
+
+__For Dash Enterprise Customers, see:__
+  - [Dash Design Kit](https://plotly.com/dash/design-kit/)
+
+
+
 ![theme_switch](https://user-images.githubusercontent.com/72614349/174487972-078fec10-a54f-418d-b0c4-8de0e8e4b438.gif)
 
 ------

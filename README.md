@@ -40,7 +40,7 @@ __Other tutorials or examples using `pages`:__
 1. Adding a Blog to your Dash app.  See  this [Dash Community Forum post](https://community.plotly.com/t/adding-a-blog-to-your-dash-app/65955). It describes how to do this and includes [this repo](https://github.com/bradley-erickson/dash-blog-page) from @bradley-erickson. 
 
 2. See the [Dash Webb Compare](https://dash-webb-compare.herokuapp.com/ ) app live.  This app shows the first images from the James Webb Space Telescope. Compare before and after images of Hubble vs Webb. The Github repo has 2 versions of the app using `pages`.  
-    - [app_pages.py](https://github.com/AnnMarieW/webb-compare/blob/master/app_pages.py) - Creates an app without using the `pages` folder.
+    - [app_pages.py](https://github.com/AnnMarieW/webb-compare/blob/master/app_pages.py) - Creates an multi-page app without using the `pages` folder.
     - [app_pages_no_assets.py](https://github.com/AnnMarieW/webb-compare/blob/master/app_pages_no_assets.py) - This multi-page app uses images that are hosted on GitHub so it doesn't use either the `pages` or the `assets` folder.  
    
 __Tips and Tricks__
@@ -193,14 +193,16 @@ This example shows how to synchronize component values between pages. It uses [M
 
 ## 13. [multi_page_theme_switch/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_theme_switch)
 This example demonstrate a light and dark theme switch component from the [dash-bootstrap-templates](https://github.com/AnnMarieW/dash-bootstrap-templates) library.
+See a live demo at [Dash Bootstrap Theme Explorer](https://hellodash.pythonanywhere.com/)  The Theme Explorer app is also made with `pages` :tada:
 
 
-__For Dash Enterprise Customers, see:__
-  - [Dash Design Kit](https://plotly.com/dash/design-kit/)
+__For Dash Enterprise Customers, see: [Dash Design Kit](https://plotly.com/dash/design-kit/)__
 
 
 
 ![theme_switch](https://user-images.githubusercontent.com/72614349/174487972-078fec10-a54f-418d-b0c4-8de0e8e4b438.gif)
+
+
 
 ------
 

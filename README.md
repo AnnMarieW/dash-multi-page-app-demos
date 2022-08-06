@@ -25,7 +25,7 @@ The examples are listed by their folder name.
  6. [multi_page_layout_functions/](#6-multi_page_layout_functions) - uses a function to access `dash.page_registry` from within the pages folder to build a sidebar.
  7. [multi_page_meta_tags/](#7-multi_page_meta_tags) - how images are used in meta tags when sharing the app on social media.
  8. [multi_page_nested_folder/](#8-multi_page_nested_folder) - creates a sidebar from a sub folder in the pages folder and adds arbitrary data to `dash.page_registry`. Uses [dash-mantine-components](https://www.dash-mantine-components.com/)
- 9. [multi_page_query_strings/](#9-multi_page_query_strings) - passes variables to the layout function from the url query string.
+ 9. [multi_page_query_strings/](#9-multi_page_query_strings) - passes variables to the layout function from the url query string. Also shows how to use `dcc.Link` within a `dcc.Markdown`
  10. [multi_page_store/](#10-multi_page_store) - sharing data between pages with a `dcc.Store`.
  11. [multi_page_table_links/](#11-multi_page_table_links) - uses links in a DataTable and an html table for navigation and passes variables from the pathname to the page layout function.
  12. [multi_page_sync_components/](#12-multi_page_sync_components) - syncs components between pages using [MultiplexerTransform from dash-extensions](https://www.dash-extensions.com/pages/transforms/multiplexer-transform) to update a dcc.Store from multiple callbacks.
@@ -158,7 +158,8 @@ This app uses  [dash-mantine-components](https://dash-mantine-components.herokua
 ## 9. [multi_page_query_strings/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_query_strings)
 
 This app demonstrates passing variables to a page using query strings.
-For more information see the Dash Documentation:  https://dash.plotly.com/urls#query-strings
+For more information see the Dash Documentation:  https://dash.plotly.com/urls#query-strings.
+You will also see how to use a `dcc.Link` within a `dcc.Markdown`
 
 ![query_strings](https://user-images.githubusercontent.com/72614349/175389777-dbf10ccf-d4cb-4f86-9e09-12a7ad048fd5.gif)
 
@@ -305,5 +306,5 @@ For comparison, here is a regular Markdown link syntax:
 ```python
 dcc.Markdown( "This is text [Page 1](/page1/news) more text")
 ```
-
+See [multi_page_query_strings/](#9-multi_page_query_strings) for an example.
 For more examples including how to format the link title with Markdown syntax or use an image [get the gist.](https://gist.github.com/AnnMarieW/b5269c177cc3dfed06766aded802f664)

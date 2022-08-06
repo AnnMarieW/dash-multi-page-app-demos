@@ -1,35 +1,25 @@
-from dash import Dash, html, dcc
-import dash
+import pandas as pd
+from dash_extensions.enrich import DashProxy, dcc, html, Input, OperatorOutput, Operator, OperatorTransform
+import plotly.express as px
+import numpy as np
+from dash.exceptions import PreventUpdate
 
+colors = ["red", "green", "blue"]
+default_color = colors[0]
+data = np.random.random((5000, 2))
+df = pd.DataFrame(columns=["x", "y"], data=data)
 
-app = Dash(__name__, use_pages=True)
+app = DashProxy(transforms=[OperatorTransform()])
+app.layout = html.Div([
+    dcc.Graph(id="graph", figure=px.scatter(data_frame=df, x='x', y='y', color_discrete_sequence=[default_color])),
+    dcc.Dropdown(id="dd", options=colors, value=default_color)
+])
 
-# Example of creating a page without using a pages folder
-dash.register_page("another_home", layout=html.Div("We're home!"), path="/")
+@app.callback(OperatorOutput("graph", "figure"), Input("dd", "value"))
+def change_color(color):
+    if color is None:
+        raise PreventUpdate
+    return Operator()['data'][0]['marker']['color'].assign(color)
 
-# Example of setting an order.  The page registry is sorted by the `order` parameter, then by module name
-dash.register_page(
-    "very_important", layout=html.Div("Don't miss it!"), path="/important", order=0
-)
-
-
-app.layout = html.Div(
-    [
-        html.H1("App Frame"),
-        html.Div(
-            [
-                html.Div(
-                    dcc.Link(f"{page['name']} - {page['path']}", href=page["path"])
-                )
-                for page in dash.page_registry.values()
-                if page["module"] != "pages.not_found_404"
-            ]
-        ),
-        html.Hr(),
-        dash.page_container,
-    ]
-)
-
-
-if __name__ == "__main__":
-    app.run_server(debug=True)
+if __name__ == '__main__':
+    app.run_server()

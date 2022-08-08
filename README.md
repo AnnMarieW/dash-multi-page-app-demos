@@ -308,3 +308,53 @@ dcc.Markdown( "This is text [Page 1](/page1/news) more text")
 ```
 See [multi_page_query_strings/](#9-multi_page_query_strings) for an example.
 For more examples including how to format the link title with Markdown syntax or use an image [get the gist.](https://gist.github.com/AnnMarieW/b5269c177cc3dfed06766aded802f664)
+
+
+## 3. Avoiding duplicate ids
+
+All ids in the entire app must be unique, otherwise callbacks may not fire.   Here are some tips to ensure that all ids in the app are unique:
+
+__3a. From this [forum post](https://community.plotly.com/t/examples-of-multi-page-apps-with-dash-pages/66489/8?u=annmariew) as recommended by @chriddyp:__
+
+>What I’ve done in big projects is to create an id function that creates the prefix automatically. This is easier with pages as each component tree is in its own layout so you can use `__name__` as the prefix.  
+> 
+> So you’d write something like:
+
+`utils.py`
+```
+def id(name, localid):
+    return f"{name.replace('_', '-').replace('.py', '').replace('/', '')}-{localid}"
+```
+
+`pages/historical_analysis.py`
+```
+from utils import id
+
+layout = html.Div(id=id(__name__, 'parent-div'))
+```
+
+__3b. From this [video by arjancodes ](https://youtu.be/XOFrvzWFM7Y)__
+
+Define ids in module.  It makes them easier to access, maintain, and reduces typos.
+
+for example:
+
+`ids.py`
+```
+PAGE1_BUTTON = "page1-button"
+PAGE1_GRAPH = "page1-graph"
+```
+`page1.py`
+```python
+import ids
+
+html.Button("button", id=ids.PAGE1_BUTTON)
+dcc.Graph(ids.PAGE1.GRAPH)
+
+@callback(
+    Output(ids.PAGE1_GRAPH, "figure"),
+    Input(ids.PAGE1_BUTTON, "n_clicks")
+)
+
+
+```

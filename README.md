@@ -7,7 +7,8 @@ __See the :new: Dash Documentation [Multi-Page Apps and URL Support](https://das
 __:movie_camera: Don't miss the video tutorials:__
  - [Introducing Dash `pages` --  A better way to make multi-page apps`](https://youtu.be/pJMZ0r84Rqs) by Adam Schroeder and Chris Parmer.  
  - Charming Data Videos by Adam Schroeder:
-      - [Creating Multi Page Apps - Part I ](https://youtu.be/Hc9_-ncr4nU)
+      - [Creating Multi Page Apps - Part I ](https://youtu.be/Hc9_-ncr4nU) Getting Started
+      - [Creating Multi Page Apps - Part II](https://www.youtube.com/watch?v=MtSgh6FOL7I) Sidebar and Layout Enhancements
 
 
 This feature was developed in dash-labs.  For background, see the thread on the [Dash Community Forum.](https://community.plotly.com/t/introducing-dash-pages-a-dash-2-x-feature-preview/57775/)
@@ -46,7 +47,7 @@ __Other tutorials or examples using `pages`:__
 __Tips and Tricks__
 1. [Pretty print dash.page_registry](#1-print_registry-from-dash-labs-110) - with the `print_registry()` function from dash-labs
 2. [How to use dcc.Link in Markdown](#2-tada-use-dcclink-in-dccmarkdown)  - for high performance page navigation from a link in a dcc.Markdown component.
-
+3. [Avoiding duplicate ids](#3-avoiding-duplicate-ids) - Strategies for handling ids in a large multi-page app.
 --------
 ---------
 

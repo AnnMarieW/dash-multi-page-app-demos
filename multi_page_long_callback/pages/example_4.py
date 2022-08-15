@@ -12,7 +12,7 @@ layout = html.Div(
         html.H4(title),
         html.P(id=ids.EXAMPLE_4_P, children=["Button not clicked"]),
         html.Div(
-            html.Progress(id=ids.EXAMPLE_4_PROGRESS_BAR, style={"visibility": "hidden"})
+            html.Progress(id=ids.EXAMPLE_4_PROGRESS_BAR, value="0", max="5")
         ),
         html.Button(id=ids.EXAMPLE_4_BUTTON, children="Run Job!"),
         html.Button(id=ids.EXAMPLE_4_CANCEL, children="Cancel Running Job!"),
@@ -46,8 +46,8 @@ layout = html.Div(
     config_prevent_initial_callbacks=True,
 )
 def update_progress(set_progress, n_clicks):
-    total = 10
+    total = 6
     for i in range(total):
-        time.sleep(0.5)
-        set_progress((str(i + 1), str(total)))
+        set_progress((str(i), str(total-1)))
+        time.sleep(1)
     return [f"Clicked {n_clicks} times"]

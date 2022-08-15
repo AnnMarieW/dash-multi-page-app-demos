@@ -24,7 +24,7 @@ The examples are listed by their folder name.
  4. [multi_page_example1/](#4-multi_page_example1) - 3 page app with header navbar, graphs and callbacks.  Uses [dash-bootstrap-components](https://dash-bootstrap-components.opensource.faculty.ai/).
  5. [multi_page_flask_login/](#5-multi_page_flask_login) - uses flask-login to secure one page of a multi-page app.
  6. [multi_page_layout_functions/](#6-multi_page_layout_functions) - uses a function to access `dash.page_registry` from within the pages folder to build a sidebar.
- 7. [multi_page_long_callback](#7-multi_page_long_calback) - demos the background callbacks examples from the dash docs.  
+ 7. [multi_page_long_callback](#7-multi_page_long_callback) - demos the background callbacks examples from the dash docs.
  8. [multi_page_meta_tags/](#8-multi_page_meta_tags) - how images are used in meta tags when sharing the app on social media.
  9. [multi_page_nested_folder/](#9-multi_page_nested_folder) - creates a sidebar from a sub folder in the pages folder and adds arbitrary data to `dash.page_registry`. Uses [dash-mantine-components](https://www.dash-mantine-components.com/)
  10. [multi_page_query_strings/](#10-multi_page_query_strings) - passes variables to the layout function from the url query string. Also shows how to use `dcc.Link` within a `dcc.Markdown`

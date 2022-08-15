@@ -60,7 +60,7 @@ layout = html.Div(
 )
 def update_progress(set_progress, n_clicks):
     total = 10
-    for i in range(total):
-        time.sleep(1)
+    for i in range(total+1):
         set_progress(make_progress_graph(i, 10))
+        time.sleep(1)
     return [f"Clicked {n_clicks} times"]

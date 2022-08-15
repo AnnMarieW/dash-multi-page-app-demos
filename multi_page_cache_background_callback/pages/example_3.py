@@ -67,9 +67,9 @@ layout = html.Div(
     # config_prevent_initial_callbacks=True,
 )
 def update_progress(set_progress, value):
-    total = 6
-    for i in range(total):
+    total = 10
+    for i in range(total + 1):
+        set_progress(make_progress_graph(i, 10))
         time.sleep(1)
-        set_progress(make_progress_graph(i, 5))
     fig = px.pie(df, values=value, names="day", hole=0.3)
     return fig, value

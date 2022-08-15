@@ -27,5 +27,5 @@ layout = html.Div(
 )
 def update_clicks(n_clicks):
     print("in E2 callback")
-    time.sleep(3.0)
+    time.sleep(4.0)
     return [f"Clicked {n_clicks} times"]

@@ -20,7 +20,8 @@ else:
     background_callback_manager = DiskcacheManager(cache)
 
 app = dash.Dash(
-    __name__, use_pages=True, background_callback_manager=background_callback_manager
+    __name__, use_pages=True, background_callback_manager=background_callback_manager,
+    suppress_callback_exceptions=True
 )
 
 app.layout = html.Div(

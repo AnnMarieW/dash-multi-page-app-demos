@@ -29,7 +29,8 @@ else:
     )
 
 app = dash.Dash(
-    __name__, background_callback_manager=background_callback_manager, use_pages=True
+    __name__, background_callback_manager=background_callback_manager, use_pages=True,
+    suppress_callback_exceptions=True
 )
 
 app.layout = html.Div(

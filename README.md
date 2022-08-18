@@ -106,8 +106,8 @@ This example also demonstrates the use of the new `dash.get_app()` function that
 
 ---------
 
-## 4. [multi_page_cache_background_callbacks](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_cache_background_callbacks).  This example
-shows how to use caching and background callbacks in a multi-page app.  The examples in the dash docs needed to be modified to make it possible to switch pages 
+## 4. [multi_page_cache_background_callbacks](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_cache_background_callbacks)
+This example shows how to use caching and background callbacks in a multi-page app.  The examples in the dash docs needed to be modified to make it possible to switch pages 
 while background callbacks are running.  
 
 ## 5. [multi_page_example1/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_example1)

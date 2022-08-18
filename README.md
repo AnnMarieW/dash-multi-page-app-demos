@@ -21,10 +21,10 @@ The examples are listed by their folder name.
  1. [multi_page_basics/](#1-multi_page_basics) - minimal overview of basic pages features.
  2. [multi_page_pathname_prefix/](#2-multi_page_pathname_prefix) - overview using a pathname prefix.
  3. [multi_page_cache/](#3-multi_page_cache) - sharing data between pages with caching.
- 4. [multi_page_example1/](#4-multi_page_example1) - 3 page app with header navbar, graphs and callbacks.  Uses [dash-bootstrap-components](https://dash-bootstrap-components.opensource.faculty.ai/).
- 5. [multi_page_flask_login/](#5-multi_page_flask_login) - uses flask-login to secure one page of a multi-page app.
- 6. [multi_page_layout_functions/](#6-multi_page_layout_functions) - uses a function to access `dash.page_registry` from within the pages folder to build a sidebar.
- 7. [multi_page_long_callback](#7-multi_page_long_callback) - demos the background callbacks examples from the dash docs.
+ 4. [multi_page_cache_background_callbacks](#4-multi_page_cache_background_callbacks) - Background callbacks (long callback) with caching - adapted for multi-page apps from the dash docs examples.
+ 5. [multi_page_example1/](#4-multi_page_example1) - 3 page app with header navbar, graphs and callbacks.  Uses [dash-bootstrap-components](https://dash-bootstrap-components.opensource.faculty.ai/).
+ 6. [multi_page_flask_login/](#5-multi_page_flask_login) - uses flask-login to secure one page of a multi-page app.
+ 7. [multi_page_layout_functions/](#6-multi_page_layout_functions) - uses a function to access `dash.page_registry` from within the pages folder to build a sidebar.
  8. [multi_page_meta_tags/](#8-multi_page_meta_tags) - how images are used in meta tags when sharing the app on social media.
  9. [multi_page_nested_folder/](#9-multi_page_nested_folder) - creates a sidebar from a sub folder in the pages folder and adds arbitrary data to `dash.page_registry`. Uses [dash-mantine-components](https://www.dash-mantine-components.com/)
  10. [multi_page_query_strings/](#10-multi_page_query_strings) - passes variables to the layout function from the url query string. Also shows how to use `dcc.Link` within a `dcc.Markdown`
@@ -105,14 +105,19 @@ This example also demonstrates the use of the new `dash.get_app()` function that
 ![cache](https://user-images.githubusercontent.com/72614349/174487969-92fda7eb-9b9f-4797-8648-dc4809e31feb.png)
 
 ---------
-## 4. [multi_page_example1/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_example1)
+
+## 4. [multi_page_cache_background_callbacks](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_cache_background_callbacks).  This example
+shows how to use caching and background callbacks in a multi-page app.  The examples in the dash docs needed to be modified to make it possible to switch pages 
+while background callbacks are running.  
+
+## 5. [multi_page_example1/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_example1)
 
 This example shows a small app with three pages with callbacks.  Each page displays a figure.  It uses dash-bootstrap-components with `dbc.DropdownMenu` to display the links in a navbar.
 
 
 ![Example1](https://user-images.githubusercontent.com/72614349/174487976-57f797b7-c2e5-4ab6-8f05-0cc62e176898.png)
 
-## 5. [multi_page_flask_login/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_flask_login)
+## 6. [multi_page_flask_login/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_flask_login)
 
 This shows a minimal example of `flask-login` to secure one of the pages of a multi-page app.
 This code is adapted for `pages`  based on Nader Elshehabi's  [article](https://dev.to/naderelshehabi/securing-plotly-dash-using-flask-login-4ia2) and [github](https://github.com/naderelshehabi/dash-flask-login) repo.
@@ -125,15 +130,9 @@ __For other authentication options see:__
 ![flask__login](https://user-images.githubusercontent.com/72614349/174487970-74351830-b971-4874-bb3f-d33d2fdec74c.gif)
 
 -----
-## 6. [multi_page_layout_functions/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_layout_functions)
+## 7. [multi_page_layout_functions/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_layout_functions)
 This app demonstrates how to create a sub-topics sidebar that is only used in certain pages.  It shows how to use functions to access the `dash.page_registry` from within the `pages` folder after it's finished building.
 For more details see also: https://dash.plotly.com/urls#dash-page-registry
-
-## 7. [multi_page_long_callback](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_long_callback)
-This app demos the background callback examples from the dash docs.  It also shows how to manage ids in a multi-page app
-by defining them in a separate module. 
-
-![long_callback](https://user-images.githubusercontent.com/72614349/184507637-eaa3d2c5-1630-4c15-9b79-c2cc01d5904f.gif)
 
 
 ## 8. [multi_page_meta_tags/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_meta_tags)

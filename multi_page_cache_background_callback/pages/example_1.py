@@ -12,24 +12,31 @@ layout = html.Div(
         html.P(
             "The first 4 times the button is clicked, it's slow. After that, cached values are used"
         ),
-        html.Div([html.P(id="paragraph_id", children=["Button not clicked"])]),
-        html.Button(id="button_id", children="Run Job!"),
-        html.Button(id="cancel_button_id", children="Cancel Running Job!"),
+        html.Div([html.P(id="paragraph1_id", children=["Button not clicked"])]),
+        html.Button(id="button1_id", children="Run Job!"),
+        html.Button(id="cancel_button1_id", children="Cancel Running Job!"),
     ]
 )
 
 
 @dash.callback(
-    output=(Output("paragraph_id", "children"), Output("button_id", "n_clicks")),
-    inputs=Input("button_id", "n_clicks"),
+    output=(Output("paragraph1_id", "children"), Output("button1_id", "n_clicks")),
+    inputs=Input("button1_id", "n_clicks"),
     background=True,
-    running=[
-        (Output("button_id", "disabled"), True, False),
-        (Output("cancel_button_id", "disabled"), False, True),
-    ],
-    cancel=[Input("cancel_button_id", "n_clicks")],
+    running=[(Output("example1_running", "data"), True, False)],
+    cancel=Input("cancel_button1_id", "n_clicks"),
     config_prevent_initial_callbacks=True,
 )
 def update_clicks(n_clicks):
-    time.sleep(4.0)
+    time.sleep(10.0)
     return [f"Clicked {n_clicks} times"], (n_clicks or 0) % 4
+
+
+@dash.callback(
+    Output("button1_id", "disabled"),
+    Output("cancel_button1_id", "disabled"),
+    Input("example1_running", "data"),
+)
+def disable(running):
+    # disable the run and cancel button based on whether the callback is running
+    return running, not running

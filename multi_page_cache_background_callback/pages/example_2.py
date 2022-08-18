@@ -8,7 +8,13 @@ dash.register_page(__name__, title=title)
 
 df = px.data.tips()
 
-dropdown = dcc.Dropdown(["Fri", "Sat", "Sun"], "Fri", clearable=False)
+dropdown = dcc.Dropdown(
+    ["Fri", "Sat", "Sun"],
+    "Fri",
+    clearable=False,
+    persistence=True,
+    id="dropdown2",
+)
 graph = dcc.Graph()
 
 layout = html.Div([html.H4(title), dropdown, dcc.Loading(graph)])
@@ -16,8 +22,8 @@ layout = html.Div([html.H4(title), dropdown, dcc.Loading(graph)])
 
 @callback(
     Output(graph, "figure"),
-    Output(dropdown, "value"),
-    Input(dropdown, "value"),
+    Output("dropdown2", "value"),
+    Input("dropdown2", "value"),
     background=True,
 )
 def update_bar_chart(day):

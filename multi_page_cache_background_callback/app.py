@@ -29,8 +29,10 @@ else:
     )
 
 app = dash.Dash(
-    __name__, background_callback_manager=background_callback_manager, use_pages=True,
-    suppress_callback_exceptions=True
+    __name__,
+    background_callback_manager=background_callback_manager,
+    use_pages=True,
+    suppress_callback_exceptions=True,
 )
 
 app.layout = html.Div(
@@ -53,6 +55,8 @@ app.layout = html.Div(
         ),
         html.Hr(),
         dash.page_container,
+        dcc.Store(id="example1_running"),
+        dcc.Store(id="example3_running"),
     ]
 )
 

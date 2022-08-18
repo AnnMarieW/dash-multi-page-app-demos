@@ -1,10 +1,9 @@
-import time
 import os
-from urllib.parse import urlparse
 from uuid import uuid4
 
 import dash
 from dash import DiskcacheManager, CeleryManager, html, dcc
+import dash_bootstrap_components as dbc
 
 launch_uid = uuid4()
 
@@ -33,17 +32,16 @@ app = dash.Dash(
     background_callback_manager=background_callback_manager,
     use_pages=True,
     suppress_callback_exceptions=True,
+    external_stylesheets=[dbc.themes.BOOTSTRAP],
 )
 
-app.layout = html.Div(
+app.layout = dbc.Container(
     [
         dcc.Markdown(
             """
             # Background Callback with Caching Examples
             These examples are from the [Background Callback Caching](https://dash.plotly.com/background-callback-caching) section of the dash docs.  
             Each example is a page of a multi-page app. Requires dash>=2.6.1
-
-
             """
         ),
         html.Div(

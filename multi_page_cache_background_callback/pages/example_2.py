@@ -1,6 +1,6 @@
 import time
 import dash
-from dash import Dash, dcc, html, Input, Output, callback
+from dash import  dcc, html, Input, Output, callback
 import plotly.express as px
 
 title = "Enable caching - with dropdown and figure"

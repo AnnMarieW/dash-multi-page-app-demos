@@ -1,3 +1,19 @@
+"""
+THis is an example of caching with background callbacks in dash>=2.6.1.
+
+Note that with  multi-page apps, if the user switches pages before the background callback
+is complete that it may cause errors if the callback tries to update components (such as progress bars etc)
+that  do not exist on the new page.
+
+This may be fixed in a future version, but in the meantime, here is a workaround:
+ - add a `dcc.Store` in app.py to make the status of the callback available to all pages
+ - in the background callback, the `running` prop updates ONLY this `dcc.Store` DO NOT include
+   other components such as disable run/cancel buttons, progress bar etc.
+ - use the dcc.Store in a separate callback to trigger the update of the other components.
+
+ """
+
+
 import os
 from uuid import uuid4
 

@@ -20,7 +20,7 @@ __Example Apps__
 The examples are listed by their folder name.
  1. [multi_page_basics/](#1-multi_page_basics) - minimal overview of basic pages features.
  2. [multi_page_pathname_prefix/](#2-multi_page_pathname_prefix) - overview using a pathname prefix.
- 3. [multi_page_cache/](#3-multi_page_cache) - sharing data between pages with caching.
+ 3. [multi_page_cache/](#3-multi_page_cache) - sharing data between pages (update-- example removed - please see examples #4 and/or #11)
  4. [multi_page_cache_background_callbacks](#4-multi_page_cache_background_callbacks) - Background callbacks (long callback) with caching - adapted for multi-page apps from the dash docs examples.
  5. [multi_page_example1/](#4-multi_page_example1) - 3 page app with header navbar, graphs and callbacks.  Uses [dash-bootstrap-components](https://dash-bootstrap-components.opensource.faculty.ai/).
  6. [multi_page_flask_login/](#5-multi_page_flask_login) - uses flask-login to secure one page of a multi-page app.
@@ -95,14 +95,9 @@ __Note the `/app1/` pathname prefix in the url__ :point_down:
 ![pathname_prefix](https://user-images.githubusercontent.com/72614349/174487979-4e9a4d6f-bad4-45b3-bef7-db59ae04a84d.png)
 
 -------
-## 3. [multi_page_cache/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_cache)
+## 3. [multi_page_cache/]()
 
-This example shows how to share data between pages of a multi-page app using caching.
-
-The easiest way to share data between callbacks is to use dcc.Store(). See also example #10 multi-page-store. However, if you have large data, then you may want to use caching as described in example 3 and 4 in the Dash tutorial [sharing data between callbacks.](https://dash.plotly.com/sharing-data-between-callbacks)
-
-This example also demonstrates the use of the new `dash.get_app()` function that can be used to access the `app` object from modules within the `pages` folder without running into the circular imports issue. 
-![cache](https://user-images.githubusercontent.com/72614349/174487969-92fda7eb-9b9f-4797-8648-dc4809e31feb.png)
+Example removed - please see  #11 multi_page_store and #4 multi_page_cach_background_callbacks.
 
 ---------
 

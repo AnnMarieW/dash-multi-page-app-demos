@@ -32,7 +32,8 @@ The examples are listed by their folder name.
  12. [multi_page_table_links/](#12-multi_page_table_links) - uses links in a DataTable and an html table for navigation and passes variables from the pathname to the page layout function.
  13. [multi_page_sync_components/](#13-multi_page_sync_components) - syncs components between pages using [MultiplexerTransform from dash-extensions](https://www.dash-extensions.com/pages/transforms/multiplexer-transform) to update a dcc.Store from multiple callbacks.
  14. [multi_page_theme_switch/](#14-multi_page_theme_switch) - demos a light and dark theme switch component from the [dash-bootstrap-templates](https://github.com/AnnMarieW/dash-bootstrap-templates) library.
- 15. [multi_page_update_url_in_callback/](#15-multi_page_update_url_in_callback) - page navigation via callback rather than a user clicking on a link.
+ 15. [multi_page_update_url_in_callback/](#15-multi_page_update_url_in_callback) - page navigation via callback - shows how to update dcc.Location (refreshes page) or a dcc.Link (doesn't refresh page).
+ 16. [multi_page_update_url_from_figure/](#16-multi_page_update_url_from_figure) - page navigation via updating a link when clicking on a figure.
 
 
 
@@ -210,13 +211,31 @@ __For Dash Enterprise Customers, see: [Dash Design Kit](https://plotly.com/dash/
 
 ------
 
-## 15. [multi_page_update_url_in_callback/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_in_callback)
 
-This example shows how to update the url in a callback. It passes the value of the dcc.Input to the layout of a different page as a path variable.
-It also demonstrates using `urllib.parse.unquote` to get decoded strings from the url.  
+## Navigation in a callback
 
+### 15. [multi_page_update_url_in_callback/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_in_callback)
+### 16. [multi_page_update_url_from_figure/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_from_figure)
+
+With Dash Pages, the routing callback is under-the-hood, which reduces the amount of boilderplate code you need to write.
+The best way to navigate is to use components such as the `dcc.Link` or `dbc.Button`. When the
+ user clicks on these links, it will navigate to the new page without refreshing the page, making the navigation
+very fast.  And the best part?  No callback required! :tada:
+
+This works well when you have predefined links. However, at times, you may want to navigate based on an input field,
+dropdown, or clicking on a figure etc.  In these cases, you should update **a link** dynamically in a callback. While it's
+possible to update the `href` prop of a `dcc.Location` in a callback, this is **not recommended** because it refreshes the page.  You can see it in this example:  
+
+
+
+**Don't do it like this!**  See this example -- and how to fix this when you run #15 [multi_page_update_url_in_callback/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_in_callback)
 ![update_url_in_callback](https://user-images.githubusercontent.com/72614349/174862799-e08cf136-15da-4831-9415-4faee2984729.gif)  
 
+In this example, we update the links based on the user clicking on the map.  When the user clicks on the links, it navigates
+to the new page **without refresing the page**.  See #16  [multi_page_update_url_from_figure/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_from_figure)
+
+
+![fight-status](https://user-images.githubusercontent.com/72614349/187049002-6ae8fc65-c9f7-4f4b-b823-538301391792.gif)
 
 ---
 ---

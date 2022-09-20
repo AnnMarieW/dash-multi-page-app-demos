@@ -23,6 +23,8 @@ The examples are listed by their folder name.
  3. [multi_page_cache/](#3-multi_page_cache) - sharing data between pages (update-- example removed - please see examples #4 and/or #11)
  4. [multi_page_cache_background_callbacks](#4-multi_page_cache_background_callbacks) - Background callbacks (long callback) with caching - adapted for multi-page apps from the dash docs examples.
  5. [multi_page_example1/](#4-multi_page_example1) - 3 page app with header navbar, graphs and callbacks.  Uses [dash-bootstrap-components](https://dash-bootstrap-components.opensource.faculty.ai/).
+  - 5a. [multi_page_dash_auth](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_dash_auth).  The `multi_page_example1` app with `HTTP Basic Auth from the `dash-auth` package.
+[Basic Auth](https://dash.plotly.com/authentication#basic-auth) section of the dash docs.
  6. [multi_page_flask_login/](#5-multi_page_flask_login) - uses flask-login to secure one page of a multi-page app.
  7. [multi_page_layout_functions/](#6-multi_page_layout_functions) - uses a function to access `dash.page_registry` from within the pages folder to build a sidebar.
  8. [multi_page_meta_tags/](#8-multi_page_meta_tags) - how images are used in meta tags when sharing the app on social media.
@@ -110,6 +112,9 @@ while background callbacks are running.
 
 This example shows a small app with three pages with callbacks.  Each page displays a figure.  It uses dash-bootstrap-components with `dbc.DropdownMenu` to display the links in a navbar.
 
+## 5a. [multi_page_dash_auth](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_dash_auth)
+This example is the `multi_page_example1` app with `HTTP Basic Auth from the `dash-auth` package.
+[Basic Auth](https://dash.plotly.com/authentication#basic-auth) section of the dash docs.
 
 ![Example1](https://user-images.githubusercontent.com/72614349/174487976-57f797b7-c2e5-4ab6-8f05-0cc62e176898.png)
 

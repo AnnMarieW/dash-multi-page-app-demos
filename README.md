@@ -36,7 +36,7 @@ The examples are listed by their folder name.
  10. [multi_page_query_strings/](#10-multi_page_query_strings) - passes variables to the layout function from the url query string. Also shows how to use `dcc.Link` within a `dcc.Markdown`
  11. [multi_page_store/](#11-multi_page_store) - sharing data between pages with a `dcc.Store`.
  12. [multi_page_table_links/](#12-multi_page_table_links) - uses links in a DataTable and an html table for navigation and passes variables from the pathname to the page layout function.
- 13. [multi_page_sync_components/](#13-multi_page_sync_components) - syncs components between pages using [MultiplexerTransform from dash-extensions](https://www.dash-extensions.com/pages/transforms/multiplexer-transform) to update a dcc.Store from multiple callbacks.
+ 13. [multi_page_sync_components/](#13-multi_page_sync_components) - Two examples.  The first is a simple example, the second syncs components between pages using [MultiplexerTransform from dash-extensions](https://www.dash-extensions.com/pages/transforms/multiplexer-transform) to update a dcc.Store from multiple callbacks.
  14. [multi_page_theme_switch/](#14-multi_page_theme_switch) - demos a light and dark theme switch component from the [dash-bootstrap-templates](https://github.com/AnnMarieW/dash-bootstrap-templates) library.
  15. [multi_page_update_url_in_callback/](#15-multi_page_update_url_in_callback) - page navigation via callback - shows how to update dcc.Location (refreshes page) or a dcc.Link (doesn't refresh page).
  16. [multi_page_update_url_from_figure/](#16-multi_page_update_url_from_figure) - page navigation via updating a link when clicking on a figure.
@@ -203,7 +203,12 @@ It shows two tables:
 
 ## 13. [multi_page_sync_components/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_sync_components)
 
-This example shows how to synchronize component values between pages. It uses [MultiplexerTransform from the dash-extensions](https://www.dash-extensions.com/pages/transforms/multiplexer-transform) library to update a `dcc.Store` component from multiple callbacks.
+These examples show how to synchronize component values between pages. 
+
+You will find two example:  
+
+ 1. [multi_page_sync_components/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_sync_components) is a simple example which uses the same component on each page and sets `persistence=True`  Thanks @nopria for the example!
+ 2. [multi_page_sync_components2/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_sync_components2)In some cases, the simple example won't work (ie component values updated in callbacks).  Version 2 uses [MultiplexerTransform from the dash-extensions](https://www.dash-extensions.com/pages/transforms/multiplexer-transform) library to update a `dcc.Store` component from multiple callbacks.
 
 ![sync](https://user-images.githubusercontent.com/72614349/175389756-bf064f6d-edd1-4107-9764-1373c260451f.gif)
 ---

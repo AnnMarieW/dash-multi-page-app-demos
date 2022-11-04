@@ -25,8 +25,8 @@ The examples are listed by their folder name.
  5. [multi_page_example1/](#4-multi_page_example1) - 3 page app with header navbar, graphs and callbacks.  Uses [dash-bootstrap-components](https://dash-bootstrap-components.opensource.faculty.ai/).
   - 5a. [multi_page_dash_auth](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_dash_auth).  The `multi_page_example1` app with `HTTP Basic Auth from the `dash-auth` package.
 [Basic Auth](https://dash.plotly.com/authentication#basic-auth) section of the dash docs.
- 6. [multi_page_flask_login/](#5-multi_page_flask_login) - uses flask-login to secure one page of a multi-page app.
- 7. [multi_page_layout_functions/](#6-multi_page_layout_functions) - uses a function to access `dash.page_registry` from within the pages folder to build a sidebar.
+ 6. [multi_page_flask_login/](#6-multi_page_flask_login) - uses flask-login to secure one page of a multi-page app.  See 2 versions of this app!
+ 7. [multi_page_layout_functions/](#7-multi_page_layout_functions) - uses a function to access `dash.page_registry` from within the pages folder to build a sidebar.
  8. [multi_page_meta_tags/](#8-multi_page_meta_tags) - how images are used in meta tags when sharing the app on social media.
  9. [multi_page_nested_folder/](#9-multi_page_nested_folder) - creates a sidebar from a sub folder in the pages folder and adds arbitrary data to `dash.page_registry`. Uses [dash-mantine-components](https://www.dash-mantine-components.com/)
  10. [multi_page_query_strings/](#10-multi_page_query_strings) - passes variables to the layout function from the url query string. Also shows how to use `dcc.Link` within a `dcc.Markdown`
@@ -120,8 +120,11 @@ This example is the `multi_page_example1` app with `HTTP Basic Auth from the `da
 
 ## 6. [multi_page_flask_login/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_flask_login)
 
-This shows a minimal example of `flask-login` to secure one of the pages of a multi-page app.
-This code is adapted for `pages`  based on Nader Elshehabi's  [article](https://dev.to/naderelshehabi/securing-plotly-dash-using-flask-login-4ia2) and [github](https://github.com/naderelshehabi/dash-flask-login) repo.
+You will find two similar examples.    
+
+  1.  [multi_page_flask_login/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_flask_login) - original example  
+  2.  [multi_page_flask_login2/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_flask_login2) - the new and improved version contributed by @jinnyzor.  See this [Dash Community Forum](https://community.plotly.com/t/dash-app-pages-with-flask-login-flow-using-flask/69507) post for more information
+
 
 __For other authentication options see:__
   - [Dash Enterprise Auth](https://dash.plotly.com/authentication#dash-enterprise-auth)

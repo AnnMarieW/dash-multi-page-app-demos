@@ -14,7 +14,7 @@ __:movie_camera: Don't miss the video tutorials:__
 This feature was developed in dash-labs.  For background, see the thread on the [Dash Community Forum.](https://community.plotly.com/t/introducing-dash-pages-a-dash-2-x-feature-preview/57775/)
 If you have a multi-page app using the `pages` plugin from dash-labs, see the post on [how to migrate to dash>=2.5.1.](https://community.plotly.com/t/introducing-dash-pages-a-dash-2-x-feature-preview/57775/132?u=annmariew) 
 
-I hope these examples help you get started exploring all the cool features in Pages. If you find these examples helpful, please consider giving this project a :star:
+I hope these examples help you get started exploring all the cool features in Pages. If you find this project helpful, please consider giving it a :star:
 
 ---------------------------
 

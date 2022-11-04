@@ -6,8 +6,8 @@ numpy
 pandas
 
 # for caching demo only
-Flask-Caching=> 2.0.1
-diskcache=>5.2.1
+Flask-Caching>= 2.0.1
+diskcache>=5.2.1
 numpy
 pandas
 redis

@@ -120,8 +120,11 @@ This example is the `multi_page_example1` app with `HTTP Basic Auth from the `da
 
 ## 6. [multi_page_flask_login/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_flask_login)
 
-This shows a minimal example of `flask-login` to secure one of the pages of a multi-page app.
-This code is adapted for `pages`  based on Nader Elshehabi's  [article](https://dev.to/naderelshehabi/securing-plotly-dash-using-flask-login-4ia2) and [github](https://github.com/naderelshehabi/dash-flask-login) repo.
+You will find two similar examples.    
+
+  1.  [multi_page_flask_login/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_flask_login) - original example  
+  2.  [multi_page_flask_login2/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_flask_login2) - the new and improved version contributed by @jinnyzor.  See this [Dash Community Forum](https://community.plotly.com/t/dash-app-pages-with-flask-login-flow-using-flask/69507) post for more information
+
 
 __For other authentication options see:__
   - [Dash Enterprise Auth](https://dash.plotly.com/authentication#dash-enterprise-auth)

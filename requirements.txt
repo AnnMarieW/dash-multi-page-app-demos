@@ -1,4 +1,4 @@
-dash>=2.5.1
+dash>=2.6.1
 dash-bootstrap-components>=1.1.0
 dash-mantine-components>=0.10.1
 dash-iconify>=0.1.2
@@ -11,6 +11,7 @@ diskcache>=5.2.1
 numpy
 pandas
 redis
+dill=0.3.5.1
 
 # for flash-login demo only
 ldap3

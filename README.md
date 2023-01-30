@@ -56,6 +56,7 @@ __Tips and Tricks__
 1. [Pretty print dash.page_registry](#1-print_registry-from-dash-labs-110) - with the `print_registry()` function from dash-labs
 2. [How to use dcc.Link in Markdown](#2-tada-use-dcclink-in-dccmarkdown)  - for high performance page navigation from a link in a dcc.Markdown component.
 3. [Avoiding duplicate ids](#3-avoiding-duplicate-ids) - Strategies for handling ids in a large multi-page app.
+4. [Display loading screen when page_container is loading](https://community.plotly.com/t/displaying-loading-screen-when-pages-container-is-loading/72109/1) - Shows how to make the overall loading screen only display when there is a change to the `_pages_content` that involves a layout being changed and not changes within the layout.
 --------
 ---------
 
@@ -398,3 +399,8 @@ dcc.Graph(ids.PAGE1.GRAPH)
 
 
 ```
+
+
+## 4. Display loading screen when page_container is loading
+Shows how to make the overall loading screen only display when there is a change to the `_pages_content` that involves a layout being changed and not changes within the layout.  See the post on the [Dash Community Forum](https://community.plotly.com/t/displaying-loading-screen-when-pages-container-is-loading/72109/1).  Thanks @BSd3v for this example!
+

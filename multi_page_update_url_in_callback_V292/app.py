@@ -1,5 +1,6 @@
 """
-Example of updating url in a callback.  Note that the dcc.Location must be in app.py
+Example of updating url in a callback in dash>=2.9.0.
+
 """
 
 
@@ -23,10 +24,9 @@ navbar = dbc.NavbarSimple(
 
 app.layout = dbc.Container(
     [
-        dcc.Location(id="url", refresh=True),
+        dcc.Location(id="url", refresh="callback-nav"),
         navbar, dash.page_container
     ],
-    fluid=True,
 )
 
 if __name__ == "__main__":

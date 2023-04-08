@@ -13,36 +13,37 @@ import dash_bootstrap_components as dbc
 register_page(__name__, path="/")
 
 intro = """
-## Navigation in a callback.
+## Navigation in a callback without refreshing the page in dash>=2.9.2
 
 With Dash Pages, the routing callback is under the hood, which reduces the amount of boilderplate code you need to write.
-The best way to navigate is to use components such as the `dcc.Link` or `dbc.Button`. When the
- user clicks on these links, it will navigate to the new page without refreshing the page making the navigation
-very fast -- and the best part:  No callback required!.
+The best way to navigate is for the user to click on a link made with components such as the `dcc.Link` or `dbc.Button`.
+ It navigates to the new page without refreshing the page making the navigation very fast -- and the best part:  No callback required!.
 
-This works well when you have predefined links. However, at times, you may want to navigate based on an input field, 
-dropdown, or clicking on a figure etc.  In these cases, you can update the link dynamically in a callback.
+This works well when you have static links. However, at times, you may want to navigate based on an input field,
+dropdown, or clicking on a figure etc.  
 
-While it's possible to update the `href` prop of a `dcc.Location` in a callback, this is not recommended because it
- refreshes the page.  
+It's possible to navigate  to a new page by updating the `href` prop of dcc.Location in a callback.  Prior to dash 
+2.9.2 this was not recommended because it was necessary to refresh the page, which is slow and you see an annoying flash.
+ 
+Eliminate the flash simply by including `refresh="callback-nav"` prop in the `dcc.Location` component.  
 
 
-### Example 1 dash<2.9.0
-Using `dcc.Location` to update the url.  **This is not recommended ** since it refreshes the page.  Note the
- `dcc.Location` must be in `app.py`
 
-If you are using dash>=2.9.0 use `dcc.Location(id="url", refresh="callback-nav")`
-This will navigate without refreshing the page.  
+### Example 1 
+Updating `href` in  `dcc.Location(refresh="callback-nav")`  
+
 """
 
 example2 = """
 ### Example 2
-"Using `dcc.Link` and `html.Button` to navigate without refreshing the page"
+Updating `href` in  `dcc.Link`  
+
 """
 
 example3 = """
 ### Example 3
-Using `dbc.Button` to navigate without refreshing the page
+Updating `href` in `dbc.Button`  
+
 """
 
 
@@ -77,14 +78,14 @@ layout = html.Div(
                 dbc.Button("submit", n_clicks=0, id="ticker-search3-btn", href="/"),
             ]
         ),
-    ]
+    ], className="pb-4"
 )
 
 
 @callback(
     Output("url", "href"), Input("ticker-search1", "value"), prevent_initial_call=True
 )
-def search(ticker):
+def update_dcc_location(ticker):
     if ticker is None or ticker == "":
         return dash.no_update
     return f"/stocks/{ticker}"

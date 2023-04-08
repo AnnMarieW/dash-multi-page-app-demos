@@ -12,7 +12,6 @@ __:movie_camera: Don't miss the video tutorials:__
 
 
 This feature was developed in dash-labs.  For background, see the thread on the [Dash Community Forum.](https://community.plotly.com/t/introducing-dash-pages-a-dash-2-x-feature-preview/57775/)
-If you have a multi-page app using the `pages` plugin from dash-labs, see the post on [how to migrate to dash>=2.5.1.](https://community.plotly.com/t/introducing-dash-pages-a-dash-2-x-feature-preview/57775/132?u=annmariew) 
 
 I hope these examples help you get started exploring all the cool features in Pages. If you find this project helpful, please consider giving it a :star:
 
@@ -21,27 +20,7 @@ I hope these examples help you get started exploring all the cool features in Pa
 
 __Example Apps__
 
-The examples are listed by their folder name.
- 1. [multi_page_basics/](#1-multi_page_basics) - minimal overview of basic pages features.
- 2. [multi_page_pathname_prefix/](#2-multi_page_pathname_prefix) - overview using a pathname prefix.
- 3. [multi_page_cache/](#3-multi_page_cache) - sharing data between pages (update-- example removed - please see examples #4 and/or #11)
- 4. [multi_page_cache_background_callbacks](#4-multi_page_cache_background_callbacks) - Background callbacks (long callback) with caching - adapted for multi-page apps from the dash docs examples.
- 5. [multi_page_example1/](#4-multi_page_example1) - 3 page app with header navbar, graphs and callbacks.  Uses [dash-bootstrap-components](https://dash-bootstrap-components.opensource.faculty.ai/).
-  - 5a. [multi_page_dash_auth](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_dash_auth).  The `multi_page_example1` app with `HTTP Basic Auth from the `dash-auth` package.
-[Basic Auth](https://dash.plotly.com/authentication#basic-auth) section of the dash docs.
- 6. [multi_page_flask_login/](#6-multi_page_flask_login) - uses flask-login to secure one page of a multi-page app.  See 2 versions of this app!
- 7. [multi_page_layout_functions/](#7-multi_page_layout_functions) - uses a function to access `dash.page_registry` from within the pages folder to build a sidebar.
- 8. [multi_page_meta_tags/](#8-multi_page_meta_tags) - how images are used in meta tags when sharing the app on social media.
- 9. [multi_page_nested_folder/](#9-multi_page_nested_folder) - creates a sidebar from a sub folder in the pages folder and adds arbitrary data to `dash.page_registry`. Uses [dash-mantine-components](https://www.dash-mantine-components.com/)
- 10. [multi_page_query_strings/](#10-multi_page_query_strings) - passes variables to the layout function from the url query string. Also shows how to use `dcc.Link` within a `dcc.Markdown`
- 11. [multi_page_store/](#11-multi_page_store) - sharing data between pages with a `dcc.Store`.
- 12. [multi_page_table_links/](#12-multi_page_table_links) - uses links in a DataTable and an html table for navigation and passes variables from the pathname to the page layout function.
- 13. [multi_page_sync_components/](#13-multi_page_sync_components) - Two examples.  The first is a simple example, the second syncs components between pages using [MultiplexerTransform from dash-extensions](https://www.dash-extensions.com/pages/transforms/multiplexer-transform) to update a dcc.Store from multiple callbacks.
- 14. [multi_page_theme_switch/](#14-multi_page_theme_switch) - demos a light and dark theme switch component from the [dash-bootstrap-templates](https://github.com/AnnMarieW/dash-bootstrap-templates) library.
- 15. [multi_page_update_url_in_callback/](#15-multi_page_update_url_in_callback) - page navigation via callback - shows how to update dcc.Location (refreshes page) or a dcc.Link (doesn't refresh page).
- 16. [multi_page_update_url_from_figure/](#16-multi_page_update_url_from_figure) - page navigation via updating a link when clicking on a figure.
-
-
+The best way to get started is to clone this repo and run the examples locally.  See a brief description if each app below.
 
 __Other tutorials or examples using `pages`:__  
 
@@ -232,28 +211,65 @@ __For Dash Enterprise Customers, see: [Dash Design Kit](https://plotly.com/dash/
 
 ## Navigation in a callback
 
+With Dash Pages, the routing callback is under-the-hood, which reduces the amount of boilderplate code you need to write.
+The best way to navigate is to use components such as the `dcc.Link` or `dbc.Button`. When the user clicks on these
+links, it will navigate to the new page without refreshing the page, making the navigation very
+fast.  And the best part?  No callback required! :tada:
+
+This works well when you have static links. However, at times, you may want to navigate based on an input field,
+dropdown, or clicking on a figure etc. There are two options:
+
+1) Update href of `dcc.Location` in a callback. Not recommended in Dash<2.9.2 because it refreshes the page.
+2) Update the link in a callback.  Best practice!
+
+:tada:  New in dash 2.9.2  `dcc.Location(refresh="callback-nav")`  - navigate without refreshing the page.  See examples below
+
 ### 15. [multi_page_update_url_in_callback/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_in_callback)
+### 15b.[multi_page_update_url_in_callback_V292/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_in_callback)
+
+See two versions of the same app. It shows both ways to navigate in a callback - by updating dcc.Location and by updating links.
+The V2.9.2 version uses the "callback-nav" option in `dcc.Location` so that the page does not refresh.
+
+
+![callback-nav](https://user-images.githubusercontent.com/72614349/230732368-f9d48477-92ef-4d73-a099-227bcaa7871f.png)
+
+
+For more information see this [community forum post.]()
+
+Here are more examples.  This one (best practice) is to update a link when a user clicks on a figure:
+
 ### 16. [multi_page_update_url_from_figure/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_from_figure)
 
-With Dash Pages, the routing callback is under-the-hood, which reduces the amount of boilderplate code you need to write.
-The best way to navigate is to use components such as the `dcc.Link` or `dbc.Button`. When the
- user clicks on these links, it will navigate to the new page without refreshing the page, making the navigation
-very fast.  And the best part?  No callback required! :tada:
-
-This works well when you have predefined links. However, at times, you may want to navigate based on an input field,
-dropdown, or clicking on a figure etc.  In these cases, you should update **a link** dynamically in a callback. While it's
-possible to update the `href` prop of a `dcc.Location` in a callback, this is **not recommended** because it refreshes the page.  You can see it in this example:  
-
-
-
-**Don't do it like this!**  See this example -- and how to fix this when you run #15 [multi_page_update_url_in_callback/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_in_callback)
-![update_url_in_callback](https://user-images.githubusercontent.com/72614349/174862799-e08cf136-15da-4831-9415-4faee2984729.gif)  
-
-In this example, we update the links based on the user clicking on the map.  When the user clicks on the links, it navigates
-to the new page **without refresing the page**.  See #16  [multi_page_update_url_from_figure/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_from_figure)
-
-
 ![fight-status](https://user-images.githubusercontent.com/72614349/187049002-6ae8fc65-c9f7-4f4b-b823-538301391792.gif)
+
+
+
+### 16b. [multi_page_update_url_from_figure_V292/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_from_figure_V292)
+
+This option is available with dash>=2.9.2.  It uses `dcc.Location(refresh="callback-nav")` to navigate without refreshing the page.
+  img
+
+![callback-nav-fig-292](https://user-images.githubusercontent.com/72614349/230731674-81ff311a-fbd4-4770-aae3-bc587c0ad2c9.gif)
+
+
+There are some known issues with `dcc.Location`.  Here are some workarounds to avoid things like the browser crashing or the back button not
+working: 
+- Only include a `dcc.Location` component if you need to update it in a callback.
+- Be sure to use only one `dcc.Location` component - do not use multiple.
+- Place the `dcc.Location` in `app.py` - do not put it in a file in the `pages` folder.
+- Place the `dcc.Location` component as the first component in the `app.py` layout. It must be in the layout before `page_container` which has the Pages `dcc.Location` component.
+
+```python
+
+app.layout = html.Div(
+    [
+        dcc.Location(id="url", refresh="callback-nav"),
+        navbar, page_container,
+    ], 
+)
+
+```
+
 
 ---
 ---

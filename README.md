@@ -20,7 +20,7 @@ I hope these examples help you get started exploring all the cool features in Pa
 
 __Example Apps__
 
-The best way to get started is to clone this repo and run the examples locally.  See a brief description if each app below.
+The best way to get started is to clone this repo and run the examples locally.  See a brief description of each app below.
 
 __Other tutorials or examples using `pages`:__  
 

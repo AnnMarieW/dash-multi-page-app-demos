@@ -225,7 +225,7 @@ dropdown, or clicking on a figure etc. There are two options:
 :tada:  New in dash 2.9.2  `dcc.Location(refresh="callback-nav")`  - navigate without refreshing the page.  See examples below
 
 ### 15. [multi_page_update_url_in_callback/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_in_callback)
-### 15b.[multi_page_update_url_in_callback_V292/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_in_callback)
+### 15b.[multi_page_update_url_in_callback_V292/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_in_callback_V292)
 
 See two versions of the same app. It shows both ways to navigate in a callback - by updating dcc.Location and by updating links.
 The V2.9.2 version uses the "callback-nav" option in `dcc.Location` so that the page does not refresh.

@@ -46,6 +46,12 @@ Using `dbc.Button` to navigate without refreshing the page
 """
 
 
+example4 = """
+### Example 4
+Using `html.A` and target="_blank" to open in a new browser window
+"""
+
+
 layout = html.Div(
     [
         dcc.Markdown(intro),
@@ -77,6 +83,18 @@ layout = html.Div(
                 dbc.Button("submit", n_clicks=0, id="ticker-search3-btn", href="/"),
             ]
         ),
+        dcc.Markdown(example4, className="mt-5"),
+        dcc.Input(
+            id="ticker-search4",
+            placeholder="Search ticker or company name...",
+            className="mb-5"
+        ),
+        html.A(
+            html.Button("submit", n_clicks=0, id="ticker-search2-btn"),
+            id="ticker-search4-link",
+            href="/",
+            target="_blank"
+        ),
     ]
 )
 
@@ -104,6 +122,17 @@ def search(ticker):
 @callback(
     Output("ticker-search3-btn", "href"),
     Input("ticker-search3", "value"),
+    prevent_initial_call=True,
+)
+def search(ticker):
+    if ticker is None or ticker == "":
+        return dash.no_update
+    return f"/stocks/{ticker}"
+
+
+@callback(
+    Output("ticker-search4-link", "href"),
+    Input("ticker-search4", "value"),
     prevent_initial_call=True,
 )
 def search(ticker):

@@ -1,6 +1,6 @@
 dash>=2.6.1
 dash-bootstrap-components>=1.1.0
-dash-mantine-components>=0.10.1
+dash-mantine-components>=0.11.0
 dash-iconify>=0.1.2
 numpy
 pandas

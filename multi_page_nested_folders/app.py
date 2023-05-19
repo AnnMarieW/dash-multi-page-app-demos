@@ -35,8 +35,7 @@ sidebar = dmc.Navbar(
             offsetScrollbars=True,
             type="scroll",
             children=[
-                dmc.Group(
-                    direction="column",
+                dmc.Stack(
                     children=[
                         create_nav_link(
                             icon="radix-icons:rocket",
@@ -48,8 +47,7 @@ sidebar = dmc.Navbar(
                 dmc.Divider(
                     label="Chapter 1", style={"marginBottom": 20, "marginTop": 20}
                 ),
-                dmc.Group(
-                    direction="column",
+                dmc.Stack(
                     children=[
                         create_nav_link(
                             icon=page["icon"], label=page["name"], href=page["path"]
@@ -61,8 +59,7 @@ sidebar = dmc.Navbar(
                 dmc.Divider(
                     label="Chapter 2", style={"marginBottom": 20, "marginTop": 20}
                 ),
-                dmc.Group(
-                    direction="column",
+                dmc.Stack(
                     children=[
                         create_nav_link(
                             icon=page["icon"], label=page["name"], href=page["path"]

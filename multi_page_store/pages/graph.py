@@ -24,11 +24,7 @@ def get_data(year):
     # simulate some expensive data processing step
     # store results in a dcc.Store in app.py
     dff = df.query(f"year=={year}")
-    store = {
-        "data": dff.to_dict("records"),
-        "columns": [{"name": i, "id": i} for i in dff.columns],
-    }
-    return store
+    return dff.to_dict("records")
 
 
 @callback(
@@ -36,7 +32,7 @@ def get_data(year):
     Input("store", "data"),
 )
 def update(store):
-    dff = pd.DataFrame(store["data"])
+    dff = pd.DataFrame(store)
     return px.scatter(
         dff,
         x="gdpPercap",

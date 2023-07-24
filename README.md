@@ -231,7 +231,7 @@ You will also see how to use a `dcc.Link` within a `dcc.Markdown`
 ## 11. [multi_page_store/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_store)
 This app shows how to share data between callbacks on different pages using a `dcc.Store` component.
 
-![share_data_between_pages](https://user-images.githubusercontent.com/72614349/175132278-ef8a5098-9c05-4e2d-a00e-e8fac73bd743.gif)
+![pages-share-data-between-pages](https://github.com/AnnMarieW/dash-multi-page-app-demos/assets/72614349/80473cef-3dc8-4d66-821f-095cfe09a25b)
 
 ----
 

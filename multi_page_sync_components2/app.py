@@ -6,26 +6,20 @@
  persistence prop cannot be set), then try this version.  (v2)
 
  Note that dcc.Store is in the app.py file so that it's accessible in all pages.
- Uses MultiplexerTransform from dash-extensions to handle multiple callbacks updating the same output.
+
+ required dash>=2.9.2 to allow duplicate callback outputs
+
 """
 
 
-from dash import page_registry, page_container
+from dash import Dash, html, dcc, page_registry, page_container
 
-from dash_extensions.enrich import (
-    DashProxy,
-    MultiplexerTransform,
-    html,
-    dcc,
-)
 
 years = [str(year) for year in (range(2020, 2023))]
 
-app = DashProxy(
+app = Dash(
     __name__,
-    transforms=[MultiplexerTransform()],
     use_pages=True,
-    prevent_initial_callbacks=True,
     suppress_callback_exceptions=True,
 )
 

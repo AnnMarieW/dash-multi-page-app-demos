@@ -1,5 +1,4 @@
-from dash import dcc, html, register_page, no_update
-from dash_extensions.enrich import Output, Input, State, callback
+from dash import dcc, html, register_page, no_update,  Output, Input, State, callback
 
 register_page(__name__, path="/")
 
@@ -16,9 +15,10 @@ layout = html.Div(
 
 @callback(
     Output("page1-year", "value"),
-    Output("store", "data"),
+    Output("store", "data", allow_duplicate=True),
     Input("page1-year", "value"),
     State("store", "data"),
+    prevent_initial_call=True
 )
 def sync_dropdowns(dd_year, store_year):
     if dd_year is None:

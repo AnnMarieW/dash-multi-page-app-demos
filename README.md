@@ -188,7 +188,7 @@ These examples show how to synchronize component values between pages.
 You will find two example:  
 
  1. [multi_page_sync_components/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_sync_components) is a simple example which uses the same component on each page and sets `persistence=True`  Thanks @nopria for the example!
- 2. [multi_page_sync_components2/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_sync_components2)In some cases, the simple example won't work (ie component values updated in callbacks).  Version 2 uses [MultiplexerTransform from the dash-extensions](https://www.dash-extensions.com/pages/transforms/multiplexer-transform) library to update a `dcc.Store` component from multiple callbacks.
+ 2. [multi_page_sync_components2/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_sync_components2)In some cases, the simple example won't work (ie component values updated in callbacks).  Version 2 uses a `dcc.Store` component to sync the component values.  It required dash>=2.9.2 to allow updating the dcc.Store from multiple callbacks on different pages.
 
 ![sync](https://user-images.githubusercontent.com/72614349/175389756-bf064f6d-edd1-4107-9764-1373c260451f.gif)
 ---

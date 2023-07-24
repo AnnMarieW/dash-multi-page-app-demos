@@ -17,7 +17,6 @@ I hope these examples help you get started exploring all the cool features in Pa
 
 ---------------------------
 
-
 __Example Apps__
 
 The best way to get started is to clone this repo and run the examples locally.  See a brief description of each app below.
@@ -36,8 +35,12 @@ __Tips and Tricks__
 2. [How to use dcc.Link in Markdown](#2-tada-use-dcclink-in-dccmarkdown)  - for high performance page navigation from a link in a dcc.Markdown component.
 3. [Avoiding duplicate ids](#3-avoiding-duplicate-ids) - Strategies for handling ids in a large multi-page app.
 4. [Display loading screen when page_container is loading](https://community.plotly.com/t/displaying-loading-screen-when-pages-container-is-loading/72109/1) - Shows how to make the overall loading screen only display when there is a change to the `_pages_content` that involves a layout being changed and not changes within the layout.
---------
----------
+
+---
+
+
+<br>
+<br>
 
 # Example Apps
 ## 1. [multi_page_basics/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_basics)
@@ -58,6 +61,10 @@ The image below :point_down: is from the `path_variables` page.  Note that asset
 ![basics](https://user-images.githubusercontent.com/72614349/174487978-ceaac40c-4421-4d86-b9a4-077a7cf85d3d.png)
 
 ----
+
+
+<br>
+<br>
 
 ## 2. [multi_page_pathname_prefix/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_basics_pathname_prefix)
     
@@ -82,15 +89,31 @@ __Note the `/app1/` pathname prefix in the url__ :point_down:
 ![pathname_prefix](https://user-images.githubusercontent.com/72614349/174487979-4e9a4d6f-bad4-45b3-bef7-db59ae04a84d.png)
 
 -------
+
+
+<br>
+<br>
+
 ## 3. [multi_page_cache/]()
 
 Example removed - please see  #11 multi_page_store and #4 multi_page_cach_background_callbacks.
 
----------
+
+---
+
+<br>
+
+
+
 
 ## 4. [multi_page_cache_background_callbacks](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_cache_background_callback)
 This example shows how to use caching and background callbacks in a multi-page app.  The examples in the dash docs needed to be modified to make it possible to switch pages 
 while background callbacks are running.  
+
+
+
+<br>
+<br>
 
 ## 5. [multi_page_example1/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_example1)
 
@@ -101,6 +124,11 @@ This example is the `multi_page_example1` app with `HTTP Basic Auth from the `da
 [Basic Auth](https://dash.plotly.com/authentication#basic-auth) section of the dash docs.
 
 ![Example1](https://user-images.githubusercontent.com/72614349/174487976-57f797b7-c2e5-4ab6-8f05-0cc62e176898.png)
+
+
+---
+<br>
+<br>
 
 ## 6. [multi_page_flask_login/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_flask_login)
 
@@ -118,15 +146,45 @@ __For other authentication options see:__
 ![flask__login](https://user-images.githubusercontent.com/72614349/174487970-74351830-b971-4874-bb3f-d33d2fdec74c.gif)
 
 -----
-## 7. [multi_page_layout_functions/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_layout_functions)
-This app demonstrates how to create a sub-topics sidebar that is only used in certain pages.  It shows how to use functions to access the `dash.page_registry` from within the `pages` folder after it's finished building.
-For more details see also: https://dash.plotly.com/urls#dash-page-registry
 
+
+<br>
+<br>
+
+## 7. [multi_page_layout_functions/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_layout_functions)
+This app demonstrates how to create a sub-topics sidebar that is only used in certain pages.  It shows how to use
+functions to access the `dash.page_registry` from within the `pages` folder after it's finished building. 
+For more details see the dash docs: https://dash.plotly.com/urls#dash-page-registry
+
+It also shows how arbitrary data added to the `dash_page_registry` can be used.  In this app, we add `top_nav=True` on the
+three pages we want to include in the top nav bar.  Then we create the nav links like this:
+
+```python
+    dbc.Nav(
+        [
+            dbc.NavLink(page["name"], href=page["path"])
+            for page in dash.page_registry.values()
+            if page.get("top_nav")
+        ],
+    ),
+```
+
+![pages-side-nav-funct](https://github.com/AnnMarieW/dash-multi-page-app-demos/assets/72614349/ca6bd011-57e3-4c5f-b72a-c64a97437f70)
+
+---
+
+<br>
+<br>
 
 ## 8. [multi_page_meta_tags/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_meta_tags)
 
 This app shows more details on how the images are added to the meta tags.
 See also the Dash Documentation:  https://dash.plotly.com/urls#meta-tags
+
+---
+
+<br>
+<br>
 
 ## 9. [multi_page_nested_folder/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_nested_folders)
 
@@ -151,6 +209,11 @@ This app uses  [dash-mantine-components](https://dash-mantine-components.herokua
 ![nested_folders](https://user-images.githubusercontent.com/72614349/175791749-4c6aafc2-b49e-403f-b651-9b24bdce565a.png)
 
 ------
+
+
+<br>
+<br>
+
 ## 10. [multi_page_query_strings/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_query_strings)
 
 This app demonstrates passing variables to a page using query strings.
@@ -161,13 +224,20 @@ You will also see how to use a `dcc.Link` within a `dcc.Markdown`
 
 ----
 
+
+<br>
+<br>
+
 ## 11. [multi_page_store/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_store)
 This app shows how to share data between callbacks on different pages using a `dcc.Store` component.
 
 ![share_data_between_pages](https://user-images.githubusercontent.com/72614349/175132278-ef8a5098-9c05-4e2d-a00e-e8fac73bd743.gif)
 
------
-----------
+----
+
+
+<br>
+<br>
 
 ## 12. [multi_page_table_links/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_table_links)
 
@@ -181,6 +251,10 @@ It shows two tables:
 
 ----
 
+
+<br>
+<br>
+
 ## 13. [multi_page_sync_components/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_sync_components)
 
 These examples show how to synchronize component values between pages. 
@@ -191,7 +265,12 @@ You will find two example:
  2. [multi_page_sync_components2/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_sync_components2)In some cases, the simple example won't work (ie component values updated in callbacks).  Version 2 uses a `dcc.Store` component to sync the component values.  It required dash>=2.9.2 to allow updating the dcc.Store from multiple callbacks on different pages.
 
 ![sync](https://user-images.githubusercontent.com/72614349/175389756-bf064f6d-edd1-4107-9764-1373c260451f.gif)
+
 ---
+
+
+<br>
+<br>
 
 ## 14. [multi_page_theme_switch/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_theme_switch)
 This example demonstrate a light and dark theme switch component from the [dash-bootstrap-templates](https://github.com/AnnMarieW/dash-bootstrap-templates) library.
@@ -209,6 +288,9 @@ __For Dash Enterprise Customers, see: [Dash Design Kit](https://plotly.com/dash/
 ------
 
 
+<br>
+<br>
+
 ## Navigation in a callback
 
 With Dash Pages, the routing callback is under-the-hood, which reduces the amount of boilderplate code you need to write.
@@ -224,6 +306,11 @@ dropdown, or clicking on a figure etc. There are two options:
 
 :tada:  New in dash 2.9.2  `dcc.Location(refresh="callback-nav")`  - navigate without refreshing the page.  See examples below
 
+---
+
+<br>
+<br>
+
 ### 15. [multi_page_update_url_in_callback/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_in_callback)
 ### 15b.[multi_page_update_url_in_callback_V292/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_in_callback_V292)
 
@@ -238,11 +325,18 @@ For more information see this [community forum post.]()
 
 Here are more examples.  This one (best practice) is to update a link when a user clicks on a figure:
 
+---
+<br>
+<br>
+
 ### 16. [multi_page_update_url_from_figure/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_from_figure)
 
 ![fight-status](https://user-images.githubusercontent.com/72614349/187049002-6ae8fc65-c9f7-4f4b-b823-538301391792.gif)
 
 
+---
+<br>
+<br>
 
 ### 16b. [multi_page_update_url_from_figure_V292/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_from_figure_V292)
 
@@ -272,7 +366,11 @@ app.layout = html.Div(
 
 
 ---
----
+
+
+
+<br>
+<br>
 
 # Tips and Tricks
 
@@ -348,6 +446,10 @@ Examples:
 
 ------------------
 
+
+<br>
+<br>
+
 ## 2. :tada: Use dcc.Link in dcc.Markdown
 
 Did you know it's possible to use dcc.Link in  `dcc.Markdown`?
@@ -365,6 +467,9 @@ dcc.Markdown( "This is text [Page 1](/page1/news) more text")
 See [multi_page_query_strings/](#9-multi_page_query_strings) for an example.
 For more examples including how to format the link title with Markdown syntax or use an image [get the gist.](https://gist.github.com/AnnMarieW/b5269c177cc3dfed06766aded802f664)
 
+
+<br>
+<br>
 
 ## 3. Avoiding duplicate ids
 
@@ -416,6 +521,9 @@ dcc.Graph(ids.PAGE1.GRAPH)
 
 ```
 
+
+<br>
+<br>
 
 ## 4. Display loading screen when page_container is loading
 Shows how to make the overall loading screen only display when there is a change to the `_pages_content` that involves a layout being changed and not changes within the layout.  See the post on the [Dash Community Forum](https://community.plotly.com/t/displaying-loading-screen-when-pages-container-is-loading/72109/1).  Thanks @BSd3v for this example!

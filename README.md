@@ -241,12 +241,10 @@ This app shows how to share data between callbacks on different pages using a `d
 
 ## 12. [multi_page_table_links/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_table_links)
 
-This app uses links in a table to navigate to a different page. 
-It shows two tables:
-- The `dash.DataTable` has links formatted using Markdown.
-- The html table uses `dcc.Link`.  The advantage of the html table is `dcc.Link` allow for the navigation to a new page without refreshing the page. The table is created with the `dbc.Table.from_dataframe` function from the `dash-bootstrap-components` library.  
+This app uses  `dcc.Link`in the cells of a Dash AG Grid  to navigate to a new page without refreshing the page. 
 
-![table_links](https://user-images.githubusercontent.com/72614349/175389810-fc60beed-9684-4ca8-96fa-d7c5e765e93a.gif)
+![grid links](https://github.com/AnnMarieW/dash-multi-page-app-demos/assets/72614349/123d0abf-d0f3-4a5c-ae8f-2b6dbc7c9d1c)
+
 
 
 ----

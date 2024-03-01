@@ -183,9 +183,7 @@ This example also shows how to add a different title and meta tag descriptions f
 
 For more information, see this forum post on how to [Contain a Dash Page Under a Parent Page.](https://community.plotly.com/t/contain-a-dash-page-under-a-parent-page/82695/)
 
-
-![multi-page-demo-path-variables](https://github.com/AnnMarieW/dash-multi-page-app-demos/assets/72614349/1ef50a6d-32ac-4fe5-9fcd-ef83b5e77558)
-
+![multi-page-demo-path-variables](https://github.com/AnnMarieW/dash-multi-page-app-demos/assets/72614349/d382f896-30ae-42f8-bb86-67427873f75e)
 
 ---
 

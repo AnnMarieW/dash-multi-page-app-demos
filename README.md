@@ -176,6 +176,22 @@ three pages we want to include in the top nav bar.  Then we create the nav links
 <br>
 <br>
 
+## 7b [multi_page_path_variables](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_path_variables)
+
+Here's how to make an example like the one above, but using path variables.  
+This example also shows how to add a different title and meta tag descriptions for each of the pages specified in the path variable.
+
+For more information, see this forum post on how to [Contain a Dash Page Under a Parent Page.](https://community.plotly.com/t/contain-a-dash-page-under-a-parent-page/82695/)
+
+
+![multi-page-demo-path-variables](https://github.com/AnnMarieW/dash-multi-page-app-demos/assets/72614349/1ef50a6d-32ac-4fe5-9fcd-ef83b5e77558)
+
+
+---
+
+<br>
+<br>
+
 ## 8. [multi_page_meta_tags/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_meta_tags)
 
 This app shows more details on how the images are added to the meta tags.

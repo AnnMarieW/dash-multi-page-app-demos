@@ -10,6 +10,7 @@ Example of:
 
 from urllib.parse import unquote
 from dash import html, register_page
+import flask
 
 
 def title(ticker=None):
@@ -17,7 +18,11 @@ def title(ticker=None):
 
 
 def description(ticker=None):
-    return f"News, financials and technical analysis for {unquote(ticker)}"
+    args = flask.request.args
+    name = flask.request.args.get('name')
+
+    return f"{name}-{args} : News, financials and technical analysis for {unquote(ticker)}"
+
 
 
 register_page(
@@ -30,6 +35,9 @@ register_page(
 
 
 def layout(ticker=None, **other_unknown_query_strings):
+
+    query_string = flask.request.query_string
+    print(query_string)
     if ticker:
         ticker = unquote(ticker)
     return html.H3(f"Financial and Technical Analysis for: {ticker}")

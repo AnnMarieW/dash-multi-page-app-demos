@@ -5,7 +5,7 @@ from flask_login import logout_user, current_user
 dash.register_page(__name__)
 
 
-def layout():
+def layout(**kwargs):
     if current_user.is_authenticated:
         logout_user()
     return html.Div(

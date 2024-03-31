@@ -7,7 +7,7 @@ dash.register_page(__name__)
 require_login(__name__)
 
 
-def layout():
+def layout(**kwargs):
     if not current_user.is_authenticated:
         return html.Div(["Please ", dcc.Link("login", href="/login"), " to continue"])
 

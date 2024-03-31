@@ -5,7 +5,7 @@ from flask_login import current_user
 dash.register_page(__name__)
 
 
-def layout():
+def layout(**kwargs):
     if not current_user.is_authenticated:
         return html.Div(["Please ", dcc.Link("login", href="/login"), " to continue"])
 

@@ -8,7 +8,7 @@ from .side_bar import sidebar
 dash.register_page(__name__)
 
 
-def layout():
+def layout(**kwargs):
     return dbc.Row(
         [dbc.Col(sidebar(), width=2), dbc.Col(html.Div("Topic 3 content"), width=10)]
     )

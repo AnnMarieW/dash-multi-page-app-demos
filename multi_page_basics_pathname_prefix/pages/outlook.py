@@ -9,5 +9,5 @@ dash.register_page(
 )
 
 
-def layout():
+def layout(**kwargs):
     return "Forward outlook"

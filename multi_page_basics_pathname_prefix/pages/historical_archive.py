@@ -5,5 +5,5 @@ import dash
 dash.register_page(__name__)
 
 
-def layout():
+def layout(**kwargs):
     return html.H1("Historical Archive")

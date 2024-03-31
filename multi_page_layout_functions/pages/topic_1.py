@@ -12,7 +12,7 @@ dash.register_page(
 )
 
 
-def layout():
+def layout(**kwargs):
     return dbc.Row(
         [dbc.Col(sidebar(), width=2), dbc.Col(html.Div("Topics Home Page"), width=10)]
     )

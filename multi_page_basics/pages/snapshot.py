@@ -8,5 +8,5 @@ dash.register_page(
 )
 
 
-def layout(snapshot_id=None):
+def layout(snapshot_id=None, **other_unknown_query_strings):
     return dash.html.Div(f"snapshot page:  snapshot-{snapshot_id}")

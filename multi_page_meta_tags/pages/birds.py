@@ -7,7 +7,7 @@ dash.register_page(
 )
 
 
-def layout():
+def layout(**kwargs):
     return """
     No image is specified but it's inferred from the module name.
     The module name is`birds.py` so it uses the `birds.jpeg` file in the assets folder.

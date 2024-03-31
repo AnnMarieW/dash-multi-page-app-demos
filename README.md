@@ -540,3 +540,12 @@ dcc.Graph(ids.PAGE1.GRAPH)
 ## 4. Display loading screen when page_container is loading
 Shows how to make the overall loading screen only display when there is a change to the `_pages_content` that involves a layout being changed and not changes within the layout.  See the post on the [Dash Community Forum](https://community.plotly.com/t/displaying-loading-screen-when-pages-container-is-loading/72109/1).  Thanks @BSd3v for this example!
 
+## 5. Preventing Query String Errors
+Dash Pages captures query strings and path variables from the URL, passing them to the layout function as keyword
+arguments. It's recommended to include **kwargs to handle unexpected query strings. This prevents errors if a user enters
+a query string in the URL, even if you don't plan to use them.
+
+```python
+def layout (**kwargs):
+    return html.Div("my layout")
+```

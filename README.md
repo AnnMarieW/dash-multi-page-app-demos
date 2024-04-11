@@ -2,7 +2,7 @@
 
 This repo contains minimal examples of multi-page apps using the Pages feature available in dash>=2.5.1
 
-__See the :new: Dash Documentation [Multi-Page Apps and URL Support](https://dash.plotly.com/urls)__  
+__See the Dash Documentation [Multi-Page Apps and URL Support](https://dash.plotly.com/urls)__  
 
 __:movie_camera: Don't miss the video tutorials:__
  - [Introducing Dash `pages` --  A better way to make multi-page apps`](https://youtu.be/pJMZ0r84Rqs) by Adam Schroeder and Chris Parmer.  
@@ -10,16 +10,18 @@ __:movie_camera: Don't miss the video tutorials:__
       - [Creating Multi Page Apps - Part I ](https://youtu.be/Hc9_-ncr4nU) Getting Started
       - [Creating Multi Page Apps - Part II](https://www.youtube.com/watch?v=MtSgh6FOL7I) Sidebar and Layout Enhancements
 
-
-This feature was developed in dash-labs.  For background, see the thread on the [Dash Community Forum.](https://community.plotly.com/t/introducing-dash-pages-a-dash-2-x-feature-preview/57775/)
-
 I hope these examples help you get started exploring all the cool features in Pages. If you find this project helpful, please consider giving it a :star:
 
 ---------------------------
 
 __Example Apps__
 
-The best way to get started is to clone this repo and run the examples locally.  See a brief description of each app below.
+The easiest way to begin is by cloning this repository and running the examples on your local machine. Below is a brief description of each app.
+
+__If you are using a Jupyter Notebook:__
+ - Place the example your Jupyter folder
+ - Make a notebook, and use %run <name of script.py> as an entry in a cell.  For example `run multi_page_basics/app`
+ - Alternately, you can execute the code as cells if the app does not use  the `pages` folder.  (See example #17)
 
 __Other tutorials or examples using `pages`:__  
 
@@ -35,7 +37,7 @@ __Tips and Tricks__
 2. [How to use dcc.Link in Markdown](#2-tada-use-dcclink-in-dccmarkdown)  - for high performance page navigation from a link in a dcc.Markdown component.
 3. [Avoiding duplicate ids](#3-avoiding-duplicate-ids) - Strategies for handling ids in a large multi-page app.
 4. [Display loading screen when page_container is loading](https://community.plotly.com/t/displaying-loading-screen-when-pages-container-is-loading/72109/1) - Shows how to make the overall loading screen only display when there is a change to the `_pages_content` that involves a layout being changed and not changes within the layout.
-
+5. [Preventing Query String Errors](#5-preventing-query-string-errors)
 ---
 
 
@@ -341,7 +343,7 @@ Here are more examples.  This one (best practice) is to update a link when a use
 <br>
 <br>
 
-### 16. [multi_page_update_url_from_figure/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_from_figure)
+## 16. [multi_page_update_url_from_figure/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_from_figure)
 
 ![fight-status](https://user-images.githubusercontent.com/72614349/187049002-6ae8fc65-c9f7-4f4b-b823-538301391792.gif)
 
@@ -350,7 +352,7 @@ Here are more examples.  This one (best practice) is to update a link when a use
 <br>
 <br>
 
-### 16b. [multi_page_update_url_from_figure_V292/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_from_figure_V292)
+## 16b. [multi_page_update_url_from_figure_V292/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_update_url_from_figure_V292)
 
 This option is available with dash>=2.9.2.  It uses `dcc.Location(refresh="callback-nav")` to navigate without refreshing the page.
   img
@@ -378,7 +380,17 @@ app.layout = html.Div(
 
 
 ---
+<br>
+<br>
 
+## 17. [multi_page_no_pages_folder](https://github.com/AnnMarieW/dash-multi-page-app-demos/blob/main/multi_page_no_pages_folder/app.py)
+
+This is an example of how to create a multi-page app without using the `pages` folder. 
+
+Use cases:
+1. Jupyter Notebooks:  Use this method when using a Jupyter Notebook and you would like to run the code as a cell. To run this example in a Jupyter Notebook, copy the content of the app.py file and paste it into a notebook cell.
+2. Accessing Pages features in a single page app.  For more information and examples, see this [forum post](https://community.plotly.com/t/use-url-query-strings-with-single-page-app/83448)
+---
 
 
 <br>
@@ -541,9 +553,14 @@ dcc.Graph(ids.PAGE1.GRAPH)
 Shows how to make the overall loading screen only display when there is a change to the `_pages_content` that involves a layout being changed and not changes within the layout.  See the post on the [Dash Community Forum](https://community.plotly.com/t/displaying-loading-screen-when-pages-container-is-loading/72109/1).  Thanks @BSd3v for this example!
 
 ## 5. Preventing Query String Errors
+
+> TypeError: layout() got an unexpected keyword argument....
+>
+
 Dash Pages captures query strings and path variables from the URL, passing them to the layout function as keyword
-arguments. It's recommended to include **kwargs to handle unexpected query strings. This prevents errors if a user enters
+arguments. It's recommended to include `**kwargs` to handle unexpected query strings. This prevents errors if a user enters
 a query string in the URL, even if you don't plan to use them.
+
 
 ```python
 def layout (**kwargs):

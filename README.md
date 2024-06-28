@@ -121,17 +121,19 @@ while background callbacks are running.
 
 This example shows a small app with three pages with callbacks.  Each page displays a figure.  It uses dash-bootstrap-components with `dbc.DropdownMenu` to display the links in a navbar.
 
-## 5a. [multi_page_dash_auth](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_dash_auth)
-This example is the `multi_page_example1` app with `HTTP Basic Auth from the `dash-auth` package.
-[Basic Auth](https://dash.plotly.com/authentication#basic-auth) section of the dash docs.
-
 ![Example1](https://user-images.githubusercontent.com/72614349/174487976-57f797b7-c2e5-4ab6-8f05-0cc62e176898.png)
-
 
 ---
 <br>
 <br>
 
+## Authentication - Basic
+## 5a. [multi_page_dash_auth](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_dash_auth)
+This example is the `multi_page_example1` app with `HTTP Basic Auth from the `dash-auth` package.
+[Basic Auth](https://dash.plotly.com/authentication#basic-auth) section of the dash docs.
+
+
+## Authentication - using Flask
 ## 6. [multi_page_flask_login/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_flask_login)
 
 You will find two similar examples.    
@@ -140,12 +142,19 @@ You will find two similar examples.
   2.  [multi_page_flask_login2/](https://github.com/AnnMarieW/dash-multi-page-app-demos/tree/main/multi_page_flask_login2) - the new and improved version contributed by @jinnyzor.  See this [Dash Community Forum](https://community.plotly.com/t/dash-app-pages-with-flask-login-flow-using-flask/69507) post for more information
 
 
+![flask__login](https://user-images.githubusercontent.com/72614349/174487970-74351830-b971-4874-bb3f-d33d2fdec74c.gif)
+
+## Authentication with Flask and OAth
+Here is a great example by @leberber
+> I have created an example Dash application that integrates with Flask for user authentication, including support for OAuth with Google. The application uses the Mantine library for UI components and supports user registration, login, and logout functionality. Additionally, it includes a theme switcher and sidebar toggle implemented via client-side callbacks
+ - See this Dash community [forum post](https://community.plotly.com/t/dash-app-with-user-registration-login-and-logout-functionality/85291) for more information
+ - See the code in [Github](https://github.com/leberber/google-auth-flask-session)
+ - See the [live example](https://google-auth-flask-session.onrender.com/)  Please allow for up to a minute for the app to comp up.
+
 __For other authentication options see:__
   - [Dash Enterprise Auth](https://dash.plotly.com/authentication#dash-enterprise-auth)
  - [Dash Basic Auth](https://dash.plotly.com/authentication#basic-auth)
 
-
-![flask__login](https://user-images.githubusercontent.com/72614349/174487970-74351830-b971-4874-bb3f-d33d2fdec74c.gif)
 
 -----
 

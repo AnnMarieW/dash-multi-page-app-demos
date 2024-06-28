@@ -144,7 +144,7 @@ You will find two similar examples.
 
 ![flask__login](https://user-images.githubusercontent.com/72614349/174487970-74351830-b971-4874-bb3f-d33d2fdec74c.gif)
 
-## Authentication with Flask and OAth
+## Authentication with Flask and OAuth
 Here is a great example by @leberber
 > I have created an example Dash application that integrates with Flask for user authentication, including support for OAuth with Google. The application uses the Mantine library for UI components and supports user registration, login, and logout functionality. Additionally, it includes a theme switcher and sidebar toggle implemented via client-side callbacks
  - See this Dash community [forum post](https://community.plotly.com/t/dash-app-with-user-registration-login-and-logout-functionality/85291) for more information

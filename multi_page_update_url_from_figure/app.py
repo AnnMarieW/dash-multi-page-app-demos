@@ -1,7 +1,7 @@
 """
 Navigation in a callback.
 
-With Dash Pages, the routing callback is under the hood, which reduces the amount of boilderplate code you need to write.
+With Dash Pages, the routing callback is under the hood, which reduces the amount of boilerplate code you need to write.
 The best way to navigate is for the user to click on a link made with components such as the `dcc.Link` or `dbc.Button`.
  It navigates to the new page without refreshing the page making the navigation very fast -- and the best part:  No callback required!.
 
@@ -13,12 +13,10 @@ dropdown, or clicking on a figure etc.  Rather than updating the `href` prop of 
 In this example, when the user clicks on an airport in the figure, we display a card with links to get more
  information on that airport.
 
-To see more examples, including an
 
 """
 
 import dash
-
 import dash_bootstrap_components as dbc
 
 

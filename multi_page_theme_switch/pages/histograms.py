@@ -1,11 +1,8 @@
 from dash import dcc, html, Input, Output, callback, register_page
 import plotly.express as px
 import numpy as np
-from dash_bootstrap_templates import ThemeSwitchAIO
-from pages.default_fig import default_fig
 
-template_theme2 = "flatly"
-template_theme1 = "darkly"
+from .default_fig import default_fig
 
 register_page(__name__)
 
@@ -29,10 +26,10 @@ layout = html.Div(
     Output("histograms-graph", "figure"),
     Input("histograms-mean", "value"),
     Input("histograms-std", "value"),
-    Input(ThemeSwitchAIO.ids.switch("theme"), "value"),
+    Input("switch", "value"),
 )
-def display_color(mean, std, toggle):
+def display_color(mean, std, switch_on):
     data = np.random.normal(mean, std, size=500)
-    template = template_theme1 if toggle else template_theme2
+    template = "flatly" if switch_on else "flatly_dark"
     fig = px.histogram(data, nbins=30, range_x=[-10, 10], template=template)
     return fig

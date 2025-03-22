@@ -14,9 +14,6 @@
 
 from dash import Dash, html, dcc, page_registry, page_container
 
-
-years = [str(year) for year in (range(2020, 2023))]
-
 app = Dash(
     __name__,
     use_pages=True,

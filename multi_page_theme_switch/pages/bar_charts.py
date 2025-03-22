@@ -1,14 +1,8 @@
-import dash
-from dash import Dash, dcc, html, Input, Output, callback
+from dash import dcc, html, Input, Output, callback, register_page
 import plotly.express as px
-from dash_bootstrap_templates import ThemeSwitchAIO
-from pages.default_fig import default_fig
+from .default_fig import default_fig
 
-template_theme2 = "flatly"
-template_theme1 = "darkly"
-
-
-dash.register_page(__name__)
+register_page(__name__)
 
 df = px.data.tips()
 days = df.day.unique()
@@ -29,10 +23,10 @@ layout = html.Div(
 @callback(
     Output("bar-chart", "figure"),
     Input("dropdown", "value"),
-    Input(ThemeSwitchAIO.ids.switch("theme"), "value"),
+    Input("switch", "value"),
 )
 def update_bar_chart(day, toggle):
-    template = template_theme1 if toggle else template_theme2
+    template = "flatly" if toggle else "flatly_dark"
     mask = df["day"] == day
     fig = px.bar(
         df[mask],

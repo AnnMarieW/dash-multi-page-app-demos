@@ -1,13 +1,13 @@
-from dash import html, dash_table, Input, Output, callback, register_page
+from dash import html,  Input, Output, callback, register_page
 import dash_ag_grid as dag
 import pandas as pd
 
 register_page(__name__)
 
 columnDefs = [
-    {"headerName": "Country", "field": "country"},
-    {"headerName": "Continent", "field": "continent"},
-    {"headerName": "Year", "field": "year"},
+    {"field": "country"},
+    {"field": "continent"},
+    {"field": "year"},
     {
         "headerName": "Life Expectancy",
         "field": "lifeExp",

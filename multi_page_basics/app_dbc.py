@@ -15,7 +15,7 @@ navbar = dbc.NavbarSimple(
         nav=True,
         label="More Pages",
     ),
-    brand="Multi Page App Plugin Demo",
+    brand="Multi Page App Demo",
     color="primary",
     dark=True,
     className="mb-2",
@@ -26,7 +26,6 @@ app.layout = dbc.Container(
         navbar,
         dash.page_container,
     ],
-    className="dbc",
     fluid=True,
 )
 

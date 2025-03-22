@@ -1,4 +1,4 @@
-from dash import dcc, html, Input, Output, callback, register_page
+from dash import dcc, Input, Output, callback, register_page
 import dash_mantine_components as dmc
 import plotly.express as px
 import numpy as np
@@ -8,10 +8,10 @@ register_page(__name__, icon="mdi:chart-histogram")
 
 np.random.seed(2020)
 
-layout = html.Div(
+layout = dmc.Box(
     [
         dcc.Graph(id="histograms-graph"),
-        html.P("Mean:"),
+        dmc.Text("Mean:"),
         dmc.Slider(
             id="histograms-mean",
             min=-3,
@@ -22,7 +22,7 @@ layout = html.Div(
                 {"value": 3, "label": "3"},
             ],
         ),
-        html.P("Standard Deviation:"),
+        dmc.Text("Standard Deviation:"),
         dmc.Slider(
             id="histograms-std",
             min=1,

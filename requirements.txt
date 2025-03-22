@@ -1,10 +1,16 @@
-dash>=2.9.2
-dash-ag-grid>=2.0.0
-dash-bootstrap-components>=1.1.0
-dash-mantine-components>=0.11.0
+dash>=3.00
+dash-ag-grid>=31.3.1
+dash-bootstrap-components>=2.0.0
+dash-mantine-components>=1.1.0
 dash-iconify>=0.1.2
 numpy
 pandas
+
+# for background callbacks
+dash[diskcache]
+
+# for basic dash auth example
+dash-auth
 
 # for caching demo only
 Flask-Caching>= 2.0.1
@@ -20,7 +26,7 @@ flask-login
 python-dotenv
 
 # for theme switch demo only
-dash-bootstrap-templates
+dash-bootstrap-templates>=2.1.0
 
 # for debugging demo using dash_labs.print_registry() only
 dash-labs>=1.1.0

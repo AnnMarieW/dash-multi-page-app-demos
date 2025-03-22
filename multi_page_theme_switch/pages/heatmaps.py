@@ -1,17 +1,11 @@
-import dash
+
 import dash_bootstrap_components as dbc
-from dash_bootstrap_templates import ThemeSwitchAIO
-from pages.default_fig import default_fig
-
-
-template_theme2 = "flatly"
-template_theme1 = "darkly"
-
-dash.register_page(__name__, path="/")
-
-from dash import Dash, dcc, html, Input, Output, callback
+from .default_fig import default_fig
+from dash import dcc, html, Input, Output, callback, register_page
 import plotly.express as px
 
+
+register_page(__name__, path="/")
 df = px.data.medals_wide(indexed=True)
 
 
@@ -31,8 +25,8 @@ layout = html.Div(
 @callback(
     Output("heatmaps-graph", "figure"),
     Input("heatmaps-medals", "value"),
-    Input(ThemeSwitchAIO.ids.switch("theme"), "value"),
+    Input("switch", "value"),
 )
 def filter_heatmap(cols, toggle):
-    fig = px.imshow(df[cols], template=template_theme1 if toggle else template_theme2)
+    fig = px.imshow(df[cols], template="flatly" if toggle else "flatly_dark")
     return fig

@@ -8,7 +8,7 @@ df = px.data.medals_wide(indexed=True)
 
 layout = html.Div(
     [
-        html.P("Medals included:"),
+        dmc.Text("Medals included:"),
         dmc.MultiSelect(
             id="heatmaps-medals",
             data=[{"label": x, "value": x} for x in df.columns],

@@ -1,4 +1,4 @@
-from dash import dcc, html, Input, Output, callback, register_page
+from dash import dcc, Input, Output, callback, register_page
 import dash_mantine_components as dmc
 import plotly.express as px
 
@@ -8,7 +8,7 @@ register_page(__name__, icon="fa:pie-chart")
 df = px.data.tips()
 
 
-layout = html.Div(
+layout = dmc.Box(
     [
         dmc.Text("Names:"),
         dmc.Select(
@@ -34,5 +34,5 @@ layout = html.Div(
     Output("pie-chart", "figure"), [Input("names", "value"), Input("values", "value")]
 )
 def generate_chart(names, values):
-    fig = px.pie(df, values=values, names=names)
+    fig = px.pie(df, values=values, names=names, template="mantine_light")
     return fig

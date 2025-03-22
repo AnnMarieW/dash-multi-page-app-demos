@@ -1,15 +1,15 @@
-from dash import dcc, html
-from dash import Output, Input, State, callback
+from dash import dcc, html, Output, Input,  callback, register_page
 
-import dash
-import utils
-
-dash.register_page(__name__, path="/")
+register_page(__name__, path="/")
 
 layout = html.Div(
     [
         html.Label("Page 1 Select Year"),
-        utils.app_spanning_input,
+        dcc.Dropdown(
+            options=tuple(range(2010, 2023)),
+            id="all-pages-year",
+            persistence=True,
+        ),
         html.Div(id="page1-out"),
     ]
 )

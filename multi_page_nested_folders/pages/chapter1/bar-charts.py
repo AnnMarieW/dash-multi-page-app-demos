@@ -1,4 +1,4 @@
-from dash import dcc, html, Input, Output, callback, register_page
+from dash import dcc, Input, Output, callback, register_page
 import dash_mantine_components as dmc
 import plotly.express as px
 
@@ -6,7 +6,7 @@ register_page(__name__, icon="fa:bar-chart")
 df = px.data.tips()
 days = df.day.unique()
 
-layout = html.Div(
+layout = dmc.Box(
     [
         dmc.Select(
             id="dropdown",

@@ -1,6 +1,7 @@
 # Dash `pages` multi-page app demos
 
-This repo contains minimal examples of multi-page apps using the Pages feature available in dash>=2.5.1
+This repo contains minimal examples of multi-page apps using the Pages feature
+Now updated to use Dash >= 3.0
 
 __See the Dash Documentation [Multi-Page Apps and URL Support](https://dash.plotly.com/urls)__  
 
